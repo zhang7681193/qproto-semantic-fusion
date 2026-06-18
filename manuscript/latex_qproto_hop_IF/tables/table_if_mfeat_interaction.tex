@@ -1,0 +1,32 @@
+\begin{table*}[t]
+\centering
+\caption{Semi-real high-order fusion benchmark using UCI Multiple Features source vectors with cross-source interaction labels. Equal-byte rows use the same per-client per-round payload as CHOP.}
+\label{tab:if-mfeat-interaction}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.94}
+\begin{tabular}{lcccc}
+\toprule
+Method & Acc. & 95\% CI & Bytes & Runtime (s) \\
+\midrule
+Mask-only metadata & 0.248 & 0.010 & 10404 & 0.342 \\
+Zero-fill prototype & 0.426 & 0.008 & 10404 & 0.331 \\
+Mean-impute prototype & 0.425 & 0.007 & 10404 & 0.468 \\
+Value+mask prototype & 0.259 & 0.031 & 20788 & 0.702 \\
+Anchor PCA imputation & 0.414 & 0.015 & 10404 & 55.080 \\
+Learned ridge imputation & 0.427 & 0.018 & 10404 & 6.214 \\
+Anchor autoencoder imputation & 0.429 & 0.017 & 10404 & 33.362 \\
+Mask-aware pooled MLP & 0.461 & 0.021 & 20788 & 3.142 \\
+View-wise late fusion & 0.421 & 0.026 & 10404 & 0.178 \\
+Shared-view prototype & 0.398 & 0.026 & 116 & 0.002 \\
+Shared-view RFF equal bytes & 0.397 & 0.026 & 7188 & 0.652 \\
+Zero-fill RFF equal bytes & 0.396 & 0.005 & 7188 & 1.837 \\
+Coverage prototype all & 0.428 & 0.007 & 20788 & 0.696 \\
+Group-balanced CProto all & 0.421 & 0.026 & 20788 & 1.055 \\
+CProto equal bytes & 0.415 & 0.010 & 7188 & 0.291 \\
+Group-balanced CProto equal bytes & 0.413 & 0.028 & 7188 & 0.366 \\
+Random-key HOP equal bytes & 0.420 & 0.012 & 7188 & 0.264 \\
+CHOP equal bytes & 0.417 & 0.016 & 7188 & 0.291 \\
+\bottomrule
+\end{tabular}
+\end{table*}

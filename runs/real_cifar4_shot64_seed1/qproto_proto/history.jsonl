@@ -1,0 +1,3 @@
+﻿{"method": "qproto_proto", "round": 1, "acc": 0.4828, "balanced_acc": 0.4810703926887818, "class_gap_proxy": 0.283486604725022, "distortion_proxy": 0.0, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.0}
+{"method": "qproto_proto", "round": 20, "acc": 0.5072500000000001, "balanced_acc": 0.5057718315876081, "class_gap_proxy": 0.2602433745127937, "distortion_proxy": 0.0, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.07686044024142714}
+

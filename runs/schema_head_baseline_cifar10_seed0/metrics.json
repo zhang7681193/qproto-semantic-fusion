@@ -1,0 +1,67 @@
+﻿{
+  "summaries": [
+    {
+      "method": "fedavg_schema",
+      "final_acc": 0.2609666666666667,
+      "final_balanced_acc": 0.2632619270437813,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 7720,
+      "elapsed_sec": 12.175345659255981
+    },
+    {
+      "method": "fedprox_schema",
+      "final_acc": 0.2574666666666667,
+      "final_balanced_acc": 0.2598982542642603,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 7720,
+      "elapsed_sec": 12.129678726196289
+    },
+    {
+      "method": "fedadam_schema",
+      "final_acc": 0.29883333333333334,
+      "final_balanced_acc": 0.29964613535043444,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 7720,
+      "elapsed_sec": 12.030428886413574
+    },
+    {
+      "method": "fedproto_schema",
+      "final_acc": 0.29253333333333337,
+      "final_balanced_acc": 0.2932960761222801,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.24839898872891047,
+      "bytes_per_client_round": 7724,
+      "elapsed_sec": 12.714605569839478
+    },
+    {
+      "method": "qproto_cproto",
+      "final_acc": 0.4465166666666667,
+      "final_balanced_acc": 0.4464517794498476,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 2.3417506626012687,
+      "bytes_per_client_round": 7724,
+      "elapsed_sec": 12.911562204360962
+    },
+    {
+      "method": "qproto_chop",
+      "final_acc": 0.4461166666666667,
+      "final_balanced_acc": 0.4460593517164789,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 2.3417506626012687,
+      "bytes_per_client_round": 11564,
+      "elapsed_sec": 14.573076486587524
+    },
+    {
+      "method": "qproto_masked_hop",
+      "final_acc": 0.4496500000000001,
+      "final_balanced_acc": 0.4495716731522668,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 3.9606245057300216,
+      "bytes_per_client_round": 24364,
+      "elapsed_sec": 17.795453786849976
+    }
+  ]
+}

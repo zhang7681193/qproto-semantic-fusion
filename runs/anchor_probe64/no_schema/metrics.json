@@ -1,0 +1,9 @@
+﻿{
+  "method": "no_schema",
+  "final_acc": 0.42925,
+  "final_balanced_acc": 0.43210164103967996,
+  "distortion_proxy": 0.3454792555979305,
+  "class_gap_proxy": 0.47559340054449856,
+  "bytes_per_client_round": 788,
+  "elapsed_sec": 0.21185660362243652
+}

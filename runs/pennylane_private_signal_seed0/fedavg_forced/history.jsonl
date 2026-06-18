@@ -1,0 +1,3 @@
+﻿{"method": "fedavg_forced", "round": 1, "acc": 0.35075, "balanced_acc": 0.3287203117268679, "nll": 1.3850634244605813}
+{"method": "fedavg_forced", "round": 20, "acc": 0.377625, "balanced_acc": 0.3492354894816547, "nll": 1.365361533555278}
+

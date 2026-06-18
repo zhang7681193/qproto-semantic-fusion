@@ -1,0 +1,9 @@
+﻿{
+  "method": "centralized_kernel",
+  "final_acc": 0.42333333333333334,
+  "final_balanced_acc": 0.4222123028618003,
+  "distortion_proxy": 0.0,
+  "class_gap_proxy": 0.083555008141518,
+  "bytes_per_client_round": 0,
+  "elapsed_sec": 0.10381650924682617
+}

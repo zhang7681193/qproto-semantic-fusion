@@ -1,0 +1,9 @@
+﻿{
+  "method": "feddyn_schema",
+  "final_acc": 0.33125000000000004,
+  "final_balanced_acc": 0.289501454427925,
+  "distortion_proxy": 0.0,
+  "class_gap_proxy": 0.0,
+  "bytes_per_client_round": 528,
+  "elapsed_sec": 0.05917644500732422
+}

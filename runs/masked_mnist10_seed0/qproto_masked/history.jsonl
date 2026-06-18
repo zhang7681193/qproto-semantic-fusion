@@ -1,0 +1,5 @@
+﻿{"method": "qproto_masked", "round": 1, "acc": 0.7469750000000001, "balanced_acc": 0.743984786772643, "class_gap_proxy": 4.497581200341402, "distortion_proxy": 0.0, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 0.0, "coverage_proxy": 0.866015625}
+{"method": "qproto_masked", "round": 15, "acc": 0.7483000000000001, "balanced_acc": 0.7453640503493812, "class_gap_proxy": 4.606663770445665, "distortion_proxy": 0.0, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 1.7642779222989085, "coverage_proxy": 0.9203125}
+{"method": "qproto_masked", "round": 1, "acc": 0.7469750000000001, "balanced_acc": 0.743984786772643, "class_gap_proxy": 4.497581200341402, "distortion_proxy": 0.0, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 0.0, "coverage_proxy": 0.866015625}
+{"method": "qproto_masked", "round": 15, "acc": 0.7483000000000001, "balanced_acc": 0.7453640503493812, "class_gap_proxy": 4.606663770445665, "distortion_proxy": 0.0, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 1.7642779222989085, "coverage_proxy": 0.9203125}
+

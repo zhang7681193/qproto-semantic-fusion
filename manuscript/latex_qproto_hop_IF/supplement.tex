@@ -1,0 +1,53 @@
+\documentclass[preprint,12pt]{elsarticle}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{array}
+\usepackage{amsthm}
+\usepackage{etoolbox}
+
+\graphicspath{{figures/}}
+
+\newcommand{\method}{QProto}
+\newcommand{\hopmethod}{QProto-HOP}
+\newcommand{\schema}{\mathsf{S}}
+\newcommand{\adapter}{A_{\schema}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{assumption}{Assumption}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\newcommand{\qtabfont}{\scriptsize}
+\AtBeginEnvironment{tabular}{\qtabfont}
+\AtBeginEnvironment{tabular*}{\qtabfont}
+\sloppy
+
+% Suppress the default elsarticle preprint footer in the review PDF.
+\makeatletter
+\def\ps@pprintTitle{%
+  \let\@oddhead\@empty
+  \let\@evenhead\@empty
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty}
+\makeatother
+
+\begin{document}
+
+\begin{center}
+{\Large Supplementary Material}\\[0.5em]
+{\large Protocol-Defined Semantic Fusion for Heterogeneous and Incomplete Source Coordinates}
+\end{center}
+
+\input{sections/appendix}
+
+\end{document}

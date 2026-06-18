@@ -1,0 +1,78 @@
+\section{Experiments}
+\label{sec:experiments}
+
+\subsection{Experimental Design}
+
+The experiments are organized around three questions rather than a single leaderboard. Does a fusion rule fail when source coordinates are not semantically comparable? Is value/count coverage enough to recover useful low-order evidence from non-shared but identifiable sources? When the signal is genuinely interaction-heavy, does a mask-aware high-order statistic add anything beyond CProto?
+
+For the quantum-readout experiments, every client measures only a subset of a public latent observable dictionary and may use its own local coordinate order. Shot count, readout noise, depolarizing attenuation, and circuit depth can also differ. The non-quantum benchmarks keep the same abstraction but replace Pauli observables with named sensor or biomedical feature groups. In both cases, the server treats two coordinates as comparable only after the schema adapter supplies the public source identity. The supplementary protocol manifest records the client splits, seeds, source dictionaries, schema sampling, public-anchor construction, tuning data, and payload accounting for each benchmark.
+The supplement begins with a claim-to-evidence map that links each experiment to the same failure mode: what changes when schema, mask, coverage, or interaction statistics are removed from the fusion protocol.
+
+\subsection{Core Baselines}
+
+The main tables use baselines as diagnostic instruments rather than as one undifferentiated leaderboard. We separate three groups. First, no-schema, forced-canonical, wrong-schema, mask-only metadata, schema zero-fill, and shared-view aggregation test semantic mismatch, missingness metadata, and view-intersection explanations. Second, equal-byte RFF, CProto, group CProto, CHOP, and adaptive CHOP form the communication-matched compact-statistic comparisons. Third, mean/PCA/ridge imputation, anchor autoencoder imputation, mask-aware pooled MLP, HeMIS-style modality-dropout fusion, and view-wise late fusion are full-dimensional or trainable boundary references when centralized feature-level training is allowed. FedProto/FedOpt-style rows test familiar FL alternatives. All named baselines are local adaptations run under the same train/test splits, schema sampling, payload accounting, and source dictionaries used by the corresponding QProto row; we do not import numerical accuracies from the original papers, whose datasets, objectives, and visibility assumptions differ from this protocol. This grouping is important: QProto is not presented as a universal replacement for deep missing-modality models, but as a compact schema-aware protocol when source identity and payload constraints matter. The supplementary material contains the additional QFL optimizer, backend, scale, shot-noise, and communication sweeps.
+
+Figure~\ref{fig:main-results-overview} summarizes the main empirical pattern across full-class heterogeneous readout, real missing-view fusion, high-order source interactions, and circuit-generated readout compatibility.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=0.98\textwidth]{if_main_result_overview.pdf}
+    \caption{Main empirical picture. QProto improves over zero-fill/shared-view controls on full-class readout and real missing-view tasks. In panel B, Strong baseline denotes the full-dimensional HeMIS-style modality-dropout fusion reference. Panel C pairs the real MHEALTH wearable source-interaction benchmark with the controlled covariance benchmark. Qiskit Aer count-derived readouts provide circuit-generated compatibility evidence, not hardware validation.}
+    \label{fig:main-results-overview}
+\end{figure*}
+
+\subsection{Real Non-Quantum Missing-View Fusion}
+
+\input{tables/table_if_nonquantum_fusion}
+
+Table~\ref{tab:if-nonquantum-fusion} is the first test of whether the formulation travels beyond quantum readout. We use UCI HAR smartphone-sensor features \cite{anguita2013har}, grouping feature names into semantic sensor views. Each client observes only part of the view set, leaving the server with incomplete but identifiable evidence. Coverage-aware QProto reaches 0.781, close to anchor PCA imputation (0.779), learned ridge imputation (0.770), anchor autoencoder imputation (0.753), mask-aware pooled MLP (0.757), and view-wise late fusion (0.717). The full-dimensional HeMIS reference reaches 0.821, which is a useful reminder that trainable missing-modality fusion is a strong boundary when feature-level training is allowed. CProto uses only 7708 bytes/client/round and reaches 0.753; with the same payload, zero-fill RFF and shared-view RFF reach 0.344 and 0.391, and CProto wins all five paired seeds. HAR also exposes a low-order boundary: pure CHOP drops to 0.632, while adaptive CHOP selects the low-order branch and returns to 0.753.
+
+\input{tables/table_if_mfeat_fusion}
+
+The UCI Multiple Features benchmark in Table~\ref{tab:if-mfeat-fusion} is larger and more explicitly multi-view \cite{uci_mfeat}. Six feature families become semantic sources; each client observes three, and only a weak 6-dimensional morphology view is shared by all clients. This setup exposes a source-normalization issue. Coordinate-wise coverage reaches 0.922, whereas group-balanced CProto reaches 0.949 and matches view-wise late fusion, exceeding learned ridge (0.928), anchor autoencoder imputation (0.925), and mask-aware pooled MLP (0.940). HeMIS reaches 0.966, again marking the full-dimensional trainable boundary. Under the same 16684-byte payload, group-balanced CProto reaches 0.876, compared with 0.766 for zero-fill RFF and 0.694 for shared-view RFF. Random-key CProto is also strong at 0.891 over ten seed-specific random key draws, so this dataset should not be read as evidence that the selected compressed key set is always superior to random compression. Rather, it shows that once coordinates are schema-bound, compact low-order evidence can remain highly useful even when the shared-view intersection is weak. Cross-source CHOP is the wrong tool here and drops to 0.722; adaptive CHOP returns to 0.866 by selecting the low-order branch. The lesson is not that high-order sketches should always be used, but that semantic grouping and payload-matched comparison matter.
+
+Figure~\ref{fig:main-results-overview}C and the supplementary material then move to a wearable activity-recognition task where source interactions are more visible. For UCI MHEALTH \cite{banos2014mhealth}, we build 2.56-second subject-held-out windows and use chest accelerometer, chest ECG, ankle IMU, and arm IMU blocks as semantic sources. At the same 13,876-byte payload over ten seeds, adaptive CHOP reaches 0.878, compared with 0.860 for equal-byte CProto, 0.774 for zero-fill RFF, and 0.720 for shared-view RFF. Pure cross-source CHOP reaches 0.865. A random-key CProto/HOP control stays at 0.798, indicating that the gain comes from protocol-selected comparable keys and train-calibrated mixtures rather than arbitrary extra payload. HeMIS reaches 0.889 and is treated as a centralized missing-modality reference, not as a communication-matched statistic.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=0.95\textwidth]{adaptive_chop_summary.pdf}
+    \caption{Adaptive CHOP under matched communication. On low-order-separable or imputation-friendly tasks such as UCI HAR and PAMAP2, the train-only mixture gate falls back to the low-order CProto branch and avoids the pure-CHOP loss. On MHEALTH, where cross-source interactions are stronger, adaptive CHOP is the highest-mean compact equal-byte statistic after ten seeds; the full-dimensional HeMIS baseline is reported separately as a stronger centralized deep-fusion reference.}
+    \label{fig:adaptive-chop}
+\end{figure*}
+
+\input{tables/table_adaptive_chop_ablation}
+\input{tables/table_adaptive_chop_gate_choices}
+
+Table~\ref{tab:adaptive-chop-ablation} and Fig.~\ref{fig:adaptive-chop} summarize the matched-communication adaptive CHOP behavior, while Table~\ref{tab:adaptive-chop-gate} reports the corresponding training-only gate choices.
+
+PAMAP2 \cite{reiss2012pamap2}, UCI Hydraulic Systems condition monitoring \cite{helwig2015hydraulic}, and WDBC \cite{street1993wdbc} are reported as supplementary checks. PAMAP2 is a larger wearable boundary case: equal-byte CProto/adaptive CHOP reach 0.725, while cross-source CHOP drops to 0.496 and HeMIS reaches 0.753. Hydraulic Systems is useful because it is an industrial condition-monitoring task. On cooler-state classification, compact equal-byte CProto/CHOP reach 0.973/0.977, compared with 0.833 for shared-view RFF and 0.968 for zero-fill RFF; HeMIS/MLP reach 0.997/0.993. The task therefore supports the source-coordinate framing but also shows the expected advantage of full-dimensional trainable models. WDBC is nearly saturated, with learned ridge marginally highest at 0.924. These datasets are boundary checks rather than headline HOP claims.
+
+The strict equal-byte rows in Tables~\ref{tab:if-nonquantum-fusion} and~\ref{tab:if-mfeat-fusion}, together with the MHEALTH, PAMAP2, and Hydraulic Systems appendix tables, address a narrow fairness question: do the compact statistics win simply because they communicate more? Across UCI HAR, MFeat, MHEALTH, PAMAP2, and Hydraulic Systems, CProto, group-balanced CProto, CHOP, or adaptive CHOP is far above equal-byte shared-view RFF controls and is usually competitive with equal-byte zero-fill RFF. Autoencoder, mask-aware MLP, HeMIS, learned-imputation, and late-fusion rows are deliberately not equal-byte rows. They ask a different question: how far can richer full-dimensional reconstruction, trainable missing-modality fusion, or decision fusion go when those tools are allowed? Compact equal-byte-only tables are included in the supplement.
+
+\subsection{Full-Class Heterogeneous Readout}
+
+\input{tables/table_masked_fullclass}
+
+Table~\ref{tab:masked-fullclass} reports the final 5-seed full-class image experiments. Correct-schema coverage-aware variants are strongest on MNIST-10, Fashion-10, and CIFAR-10. The largest gap is against schema-incorrect controls, and the advantage remains over schema-aware FedAdam, FedProto, SCAFFOLD, and FedDyn head baselines. The shared-observable row is worth keeping in view: when the common intersection already contains discriminative coordinates, it can be strong, especially on Fashion-10. The result supports the semantic coverage-aware reading of the method, not a universal HOP-gain reading.
+
+\subsection{Missing-View Fusion Controls}
+
+\input{tables/table_if_fusion_controls}
+
+The controls in Table~\ref{tab:if-fusion-controls} separate three possible explanations. \emph{Schema zero-fill} keeps the correct identities but replaces missing measurements with zeros and drops the mask. \emph{Mask-only metadata} keeps only the observed-coordinate pattern. \emph{Shared-observable} aggregation discards every coordinate not seen by all clients. Mask-only stays near chance, so schema metadata alone is not the signal. Zero-fill and shared-observable aggregation can be competitive, but CProto, CHOP, and the full coverage-aware variants remain above them except in the high-overlap Fashion-10 boundary case, where the shared intersection is already informative.
+
+\subsection{High-Order Fusion}
+
+\input{tables/table_if_scientific_fusion}
+
+Table~\ref{tab:if-scientific-fusion} isolates the opposite regime, where high-order statistics should matter. The controlled non-image covariance-sensing task has weak class means, with discriminative information concentrated in high-order readout interactions. Generic missing-view controls are still nontrivial--zero-fill and shared-observable aggregation are around 0.63 accuracy--but CHOP reaches 0.732 at 3864 bytes/client/round, compared with 0.358 for the matched low-order CProto. This is the main HOP/CHOP evidence in the IF narrative. The supplement reports separate PennyLane circuit-generated and synthetic covariance diagnostics; we do not pool those numbers with the main covariance-sensing table.
+
+\subsection{Circuit-Generated Readout Evidence}
+
+Figure~\ref{fig:main-results-overview}D gives the Qiskit Aer circuit-generated readout check across finite-shot, readout-error, depolarizing-noise, and circuit-depth settings; the supplement gives the detailed values. Aer measurement counts are converted into readout features, and the downstream QProto runner disables additional synthetic noise to avoid double counting. This is circuit-level compatibility evidence only, not hardware validation or a claim about physical-device performance.
+
+\subsection{Statistical Tests}
+
+\input{tables/table_if_significance}
+
+Table~\ref{tab:if-significance} reports paired seed-level tests for the main claims. We use one-sided paired tests for the directional hypotheses and apply Holm correction across the reported comparisons. Fashion-10 against shared-observable and the Qiskit Aer rows in the full supplementary table remain underpowered or not significant after correction. The Aer rows use the matched three-seed backend compatibility comparisons, whereas the robustness sweep in Fig.~\ref{fig:main-results-overview}D uses five seeds per noise setting. The statistically strongest parts of the paper are the full-class heterogeneous-fusion comparisons, the real non-quantum missing-view comparisons, and the covariance-dominated high-order fusion comparisons.

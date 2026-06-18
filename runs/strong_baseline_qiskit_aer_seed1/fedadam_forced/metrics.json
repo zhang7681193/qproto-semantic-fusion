@@ -1,0 +1,9 @@
+﻿{
+  "method": "fedadam_forced",
+  "final_acc": 0.37083333333333335,
+  "final_balanced_acc": 0.38002946127946124,
+  "distortion_proxy": 0.0,
+  "class_gap_proxy": 0.0,
+  "bytes_per_client_round": 528,
+  "elapsed_sec": 0.038080692291259766
+}

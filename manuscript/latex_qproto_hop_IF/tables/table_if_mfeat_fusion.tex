@@ -1,0 +1,35 @@
+\begin{table*}[t]
+\centering
+\caption{Real multi-view missing-view fusion benchmark on the UCI Multiple Features handwritten-digit dataset. Six feature families are treated as semantic views; each client observes a heterogeneous subset. Equal-byte rows use the same per-client per-round payload as CHOP.}
+\label{tab:if-mfeat-fusion}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.94}
+\begin{tabular}{lcccc}
+\toprule
+Method & Acc. & 95\% CI & Bytes & Runtime (s) \\
+\midrule
+Mask-only metadata & 0.100 & 0.000 & 26004 & 0.570 \\
+Zero-fill prototype & 0.818 & 0.016 & 26004 & 0.576 \\
+Mean-impute prototype & 0.825 & 0.016 & 26004 & 0.676 \\
+Value+mask prototype & 0.195 & 0.017 & 51964 & 1.158 \\
+Anchor PCA imputation & 0.901 & 0.019 & 26004 & 38.492 \\
+Learned ridge imputation & 0.928 & 0.011 & 26004 & 2.757 \\
+Anchor autoencoder imputation & 0.925 & 0.011 & 26004 & 18.535 \\
+Mask-aware pooled MLP & 0.940 & 0.009 & 51964 & 1.449 \\
+HeMIS modality-dropout fusion & 0.966 & 0.006 & 51964 & 2.872 \\
+View-wise late fusion & 0.949 & 0.008 & 26004 & 0.212 \\
+Shared-view prototype & 0.692 & 0.009 & 284 & 0.003 \\
+Shared-view RFF equal bytes & 0.694 & 0.008 & 16684 & 0.430 \\
+Zero-fill RFF equal bytes & 0.766 & 0.017 & 16684 & 0.691 \\
+Coverage prototype all & 0.922 & 0.010 & 51964 & 1.329 \\
+Group-balanced CProto all & 0.949 & 0.008 & 51964 & 1.574 \\
+CProto equal bytes & 0.868 & 0.021 & 16684 & 0.430 \\
+Group-balanced CProto equal bytes & 0.876 & 0.027 & 16684 & 0.476 \\
+Random-key CProto equal bytes & 0.891 & 0.012 & 16684 & 0.324 \\
+Random-key HOP equal bytes & 0.883 & 0.020 & 16684 & 0.511 \\
+CHOP equal bytes & 0.722 & 0.066 & 16684 & 0.500 \\
+Adaptive CHOP equal bytes & 0.866 & 0.022 & 16684 & 0.523 \\
+\bottomrule
+\end{tabular}
+\end{table*}

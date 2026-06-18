@@ -1,0 +1,3 @@
+﻿{"method": "shared_observable", "round": 1, "acc": 0.65135, "balanced_acc": 0.6506251577503624, "class_gap_proxy": 0.5018818510450569, "distortion_proxy": 0.8786761956168182, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 0.0}
+{"method": "shared_observable", "round": 15, "acc": 0.6496999999999999, "balanced_acc": 0.6489614468926744, "class_gap_proxy": 0.49818258524723, "distortion_proxy": 0.8776141446745636, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 0.03101847849590899}
+

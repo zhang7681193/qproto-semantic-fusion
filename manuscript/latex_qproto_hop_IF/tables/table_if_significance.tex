@@ -1,0 +1,45 @@
+\begin{table*}[t]
+\centering
+\caption{Paired significance tests for the main experimental claims. Reported values are mean paired accuracy deltas over matched seeds. One-sided paired \(t\)-tests use Holm correction across all tested comparisons; the supplementary table also reports two-sided Holm values.}
+\label{tab:if-significance}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.9}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llrrrr}
+\toprule
+Setting & Comparison & \(n\) & \(\Delta\) acc. & \(d_z\) & Holm \(p_{1s}\) \\
+\midrule
+MNIST-10 & Masked-HOP - zero-fill & 5 & 0.052 & 4.67 & 0.0059 \\
+MNIST-10 & Masked-HOP - shared-observable & 5 & 0.050 & 4.78 & 0.0057 \\
+Fashion-10 & Masked-HOP - zero-fill & 5 & 0.015 & 1.86 & 0.0851 \\
+Fashion-10 & Masked-HOP - shared-observable & 5 & 0.006 & 0.65 & 0.4422 \\
+CIFAR-10 & Masked-HOP - zero-fill & 5 & 0.033 & 8.16 & 0.0009 \\
+CIFAR-10 & Masked-HOP - shared-observable & 5 & 0.029 & 1.83 & 0.0851 \\
+Covariance sensing & CHOP - zero-fill & 5 & 0.105 & 3.54 & 0.0144 \\
+Covariance sensing & CHOP - shared-observable & 5 & 0.106 & 1.53 & 0.1058 \\
+Covariance sensing & CHOP - CProto & 5 & 0.374 & 10.35 & 0.0004 \\
+MNIST-10 & Masked-HOP - schema-FedProto & 5 & 0.332 & 11.56 & 0.0003 \\
+MNIST-10 & Masked-HOP - schema-FedAdam & 5 & 0.288 & 9.27 & 0.0006 \\
+Fashion-10 & Masked-HOP - schema-FedProto & 5 & 0.140 & 6.17 & 0.0025 \\
+Fashion-10 & Masked-HOP - schema-FedAdam & 5 & 0.118 & 5.04 & 0.0049 \\
+CIFAR-10 & Masked-HOP - schema-FedProto & 5 & 0.186 & 10.49 & 0.0004 \\
+CIFAR-10 & Masked-HOP - schema-FedAdam & 5 & 0.172 & 10.76 & 0.0003 \\
+PennyLane high-order & CHOP - CProto & 3 & 0.199 & 10.72 & 0.0255 \\
+PennyLane high-order & CHOP - schema-FedProto & 3 & 0.317 & 25.23 & 0.0063 \\
+Qiskit Aer & Masked-HOP - schema-FedProto & 3 & 0.169 & 2.91 & 0.1058 \\
+Qiskit Aer & Masked-HOP - FedDyn & 3 & 0.178 & 3.48 & 0.1058 \\
+UCI HAR & CProto eq. - zero-fill RFF eq. & 5 & 0.409 & 13.34 & 0.0002 \\
+UCI HAR & CProto eq. - shared-view RFF eq. & 5 & 0.362 & 24.84 & \(<0.0001\) \\
+MFeat & Group-CProto eq. - zero-fill RFF eq. & 10 & 0.110 & 1.89 & 0.0031 \\
+MFeat & Group-CProto eq. - shared-view RFF eq. & 10 & 0.182 & 4.17 & \(<0.0001\) \\
+MHEALTH & CHOP eq. - CProto eq. & 10 & 0.005 & 0.09 & 1.0000 \\
+MHEALTH & CHOP eq. - zero-fill RFF eq. & 10 & 0.091 & 1.05 & 0.0579 \\
+MHEALTH & CHOP eq. - mask-aware MLP & 10 & 0.005 & 0.07 & 1.0000 \\
+UCI HAR & Adaptive CHOP - CHOP eq. & 5 & 0.120 & 4.82 & 0.0057 \\
+MFeat & Adaptive CHOP - CHOP eq. & 10 & 0.144 & 1.62 & 0.0071 \\
+PAMAP2 & Adaptive CHOP - CHOP eq. & 5 & 0.230 & 2.74 & 0.0269 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

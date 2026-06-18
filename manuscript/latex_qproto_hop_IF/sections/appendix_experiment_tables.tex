@@ -1,0 +1,139 @@
+\section{Additional Experiment Tables}
+
+This appendix keeps QFL-specific and diagnostic results out of the IF main narrative while preserving the evidence needed for reproducibility and specialist review.
+
+\subsection{Claim-to-Evidence Map}
+
+\begin{table*}[t]
+\centering
+\caption{How the supplementary evidence supports the main scoped claims. The table is intended to make clear which results are headline evidence and which results are boundary checks.}
+\label{tab:claim-evidence-map}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{0.26\textwidth}p{0.36\textwidth}p{0.30\textwidth}}
+\toprule
+Scoped claim & Primary evidence & Boundary or caveat \\
+\midrule
+Semantic comparability is necessary before aggregation & No-schema, forced-canonical, wrong-schema, zero-fill, mask-only, shared-view, and schema-correct rows in the main image and IF-control tables & Shared-view can be strong when the common intersection already carries the signal; this is treated as a boundary case, not a failure of the protocol view \\
+Compact value/count fusion is useful under incomplete but identified sources & UCI HAR, Multiple Features, MHEALTH, PAMAP2, Hydraulic Systems, and WDBC equal-byte tables; paired tests in Table~\ref{tab:if-significance-full} & Full-dimensional HeMIS, MLP, imputation, and late-fusion rows are stronger boundary references when centralized feature-level training is allowed \\
+HOP/CHOP is conditional, not universal & Covariance-sensing, MHEALTH, PennyLane high-order readout, CHOP sweeps, and key-policy diagnostics & HAR, MFeat, PAMAP2, WDBC, and Gas Drift show that low-order CProto or adaptive fallback is safer when the signal is low-order or imputation-friendly \\
+Selected keys should be tested against random compression & Random-key CProto/HOP controls in MFeat, MHEALTH, WDBC, and CHOP key-policy tables & MFeat random-key low-order CProto is strong; that dataset supports schema-aware low-order fusion rather than selected-key superiority \\
+Quantum-readout compatibility is engineering evidence, not hardware validation & Qiskit Aer count-derived robustness sweep, PennyLane high-order readouts, and hardware-ready path table & No paid IBM hardware data are used; hardware validation remains future work \\
+Communication fairness is explicit & Strict equal-byte tables, payload accounting notes, and protocol manifest & Public schema definitions and anchors are treated as setup objects rather than per-round payloads \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}
+
+\subsection{Protocol Manifest}
+
+\input{tables/table_protocol_manifest}
+
+The seed counts in Table~\ref{tab:protocol-manifest} are the counts used for the reported means and paired tests. Strict equal-byte tables below use the same seed identifiers, payload formulas, and public-anchor splits as the corresponding main-text rows. Random-key controls are regenerated from the experiment seed only and do not use validation or test statistics for key selection.
+
+\subsection{Four-Class Image Pilots}
+
+\input{tables/table_real_image}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{real_image_dataset_accuracy.pdf}
+    \caption{Four-class image diagnostics under heterogeneous quantum readout. These results motivated the full-class experiments in the main text.}
+    \label{fig:real-image}
+\end{figure}
+
+\subsection{FL and QFL Baselines}
+
+\input{tables/table_strong_baselines}
+\input{tables/table_drift_baselines}
+\input{tables/table_quantum_param_vqc}
+
+These tables compare the protocol against FedAvg/FedProx/FedAdam, SCAFFOLD/FedDyn, FedProto, and trainable PennyLane VQC parameter aggregation. They are important specialist baselines, but they address QFL optimization rather than the central IF claim, so they are kept in the appendix.
+
+\subsection{Scale, Overlap, and Backend Pilots}
+
+\input{tables/table_scale_overlap}
+\input{tables/table_quantum_backend_masked}
+\input{tables/table_qiskit_noise_sweep}
+\input{tables/table_hardware_ready}
+
+The Qiskit circuit/count-to-readout path builds one circuit per observable and converts Aer bit counts into the same precomputed-readout format used by QProto. The robustness sweep reports five seeds per noise setting; the paired optimizer/backend comparisons use the three matched seeds available across all compared QFL baselines. Both are engineering compatibility checks, not hardware validation results.
+
+\subsection{Additional Real Missing-View Fusion Check}
+
+\input{tables/table_strict_equal_byte_controls}
+\input{tables/table_strict_equal_byte_mfeat}
+\input{tables/table_if_mhealth_fusion}
+\input{tables/table_strict_equal_byte_mhealth}
+\input{tables/table_if_pamap2_fusion}
+\input{tables/table_strict_equal_byte_pamap2}
+\input{tables/table_if_hydraulic_cooler_fusion}
+\input{tables/table_strict_equal_byte_hydraulic_cooler}
+\input{tables/table_if_wdbc_fusion}
+\input{tables/table_strict_equal_byte_wdbc}
+\input{tables/table_strict_equal_byte_gas_drift}
+\input{tables/table_strict_equal_byte_gas_drift_temporal}
+
+The first two tables isolate equal-byte rows from the UCI HAR and UCI Multiple Features main-text tables. The MHEALTH table gives the full wearable multi-source result summarized in the main text. PAMAP2 is included as a larger wearable boundary case where adaptive CHOP falls back to low-order CProto. Hydraulic Systems adds a real industrial condition-monitoring check: compact CProto/CHOP statistics are far above shared-view compression and close to PCA/ridge/late-fusion baselines, while HeMIS and mask-aware MLP remain stronger full-dimensional trainable references. WDBC is included as a biomedical breadth check. It is nearly saturated, so it is less diagnostic than UCI HAR, Multiple Features, MHEALTH, or Hydraulic Systems; the main text therefore treats it as a boundary case rather than a headline comparison. Gas Drift is reported as a negative boundary check: random and temporal splits both show that CHOP is not naturally favored there, even after cross-sensor HOP pair selection and a small HOP-weight screen.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{adaptive_chop_summary.pdf}
+    \caption{Adaptive CHOP summary under matched communication. The mixture/fallback gate avoids pure-CHOP degradation on low-order tasks and gives the highest mean among compact equal-byte statistics on the ten-seed MHEALTH run.}
+    \label{fig:adaptive-chop-supp}
+\end{figure}
+
+\input{tables/table_if_significance_full}
+
+\paragraph{Stability and claim boundaries.}
+The seed-level tables should be read with the scoped claims in Table~\ref{tab:claim-evidence-map}. The most stable comparisons are the schema-correct rows against no-schema, wrong-schema, shared-view, and equal-byte RFF controls. UCI HAR, MHEALTH, and Multiple Features also show stable advantages over equal-byte shared-view compression. Some comparisons are intentionally not used as headline claims: MFeat random-key CProto is strong, so that benchmark supports schema-aware low-order fusion rather than selected-key superiority; adaptive CHOP on MHEALTH has the highest mean among compact equal-byte statistics but is reported as interaction-heavy evidence rather than as a universal HOP guarantee; and Qiskit Aer rows are compatibility checks with limited matched seeds, not hardware validation.
+
+\subsection{High-Order and Key-Policy Diagnostics}
+
+\input{tables/table_masked_hop_highorder}
+\input{tables/table_chop_sweep}
+\input{tables/table_chop_key_policy}
+\input{tables/table_pairwise_deltas}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{chop_sweep_accuracy.pdf}
+    \caption{CHOP communication sweeps. CHOP and CProto use the same selected observable keys; the gap isolates mask-aware high-order statistics.}
+    \label{fig:chop-sweep}
+\end{figure}
+
+\subsection{Schema, Shot, and Communication Diagnostics}
+
+\input{tables/table_schema}
+\input{tables/table_hop}
+\input{tables/table_shot}
+\input{tables/table_comm_synth}
+\input{tables/table_comm_real}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{schema_triptych_accuracy.pdf}
+    \caption{Schema comparability benchmark. The gain comes from making readout coordinates semantically comparable before aggregation.}
+    \label{fig:schema}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{hop_ablation_accuracy.pdf}
+    \caption{High-order benchmark. HOP separates covariance-structured classes that low-order prototypes collapse.}
+    \label{fig:hop}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{real_cifar4_shot_sweep.pdf}
+    \caption{CIFAR-4 shot sweep under heterogeneous readout.}
+    \label{fig:shot}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{real_cifar4_comm_budget.pdf}
+    \caption{CIFAR-4 communication curve. On this low-order-separable real feature task, HOP is not the primary source of gain.}
+    \label{fig:comm-real}
+\end{figure}

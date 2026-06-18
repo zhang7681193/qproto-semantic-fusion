@@ -1,0 +1,67 @@
+﻿{
+  "summaries": [
+    {
+      "method": "fedavg_schema",
+      "final_acc": 0.46145833333333336,
+      "final_balanced_acc": 0.45807028619528617,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 528,
+      "elapsed_sec": 0.07431483268737793
+    },
+    {
+      "method": "fedprox_schema",
+      "final_acc": 0.4604166666666667,
+      "final_balanced_acc": 0.45664983164983164,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 528,
+      "elapsed_sec": 0.06134200096130371
+    },
+    {
+      "method": "fedadam_schema",
+      "final_acc": 0.4927083333333334,
+      "final_balanced_acc": 0.47708633958633956,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 528,
+      "elapsed_sec": 0.08549833297729492
+    },
+    {
+      "method": "fedproto_schema",
+      "final_acc": 0.48958333333333337,
+      "final_balanced_acc": 0.4724266474266474,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.3575208845638698,
+      "bytes_per_client_round": 532,
+      "elapsed_sec": 0.05091047286987305
+    },
+    {
+      "method": "qproto_cproto",
+      "final_acc": 0.5552083333333333,
+      "final_balanced_acc": 0.5630321067821068,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.8535510277140975,
+      "bytes_per_client_round": 276,
+      "elapsed_sec": 0.02865767478942871
+    },
+    {
+      "method": "qproto_chop",
+      "final_acc": 0.559375,
+      "final_balanced_acc": 0.5663389850889851,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.8535510277140975,
+      "bytes_per_client_round": 532,
+      "elapsed_sec": 0.08615946769714355
+    },
+    {
+      "method": "qproto_masked_hop",
+      "final_acc": 0.6031249999999999,
+      "final_balanced_acc": 0.6058426527176528,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 1.2923174424397186,
+      "bytes_per_client_round": 660,
+      "elapsed_sec": 0.03801870346069336
+    }
+  ]
+}

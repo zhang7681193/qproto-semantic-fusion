@@ -1,0 +1,40 @@
+\begin{table*}[t]
+\centering
+\caption{Real image datasets under heterogeneous quantum readout. Results are means with 95\% confidence intervals over 5 seeds.}
+\label{tab:real-image-main}
+\begin{tabular}{llccc}
+\toprule
+Dataset & Method & Acc. (95\% CI) & Bal. acc. & Bytes \\
+\midrule
+\multirow{8}{*}{MNIST-4}
+& QProto-HOP & 0.709 $\pm$ 0.054 & 0.707 & 4628 \\
+& QProto prototype & 0.709 $\pm$ 0.054 & 0.707 & 3092 \\
+& No schema & 0.441 $\pm$ 0.029 & 0.437 & 3092 \\
+& Forced canonical & 0.437 $\pm$ 0.039 & 0.434 & 3092 \\
+& Wrong schema & 0.280 $\pm$ 0.023 & 0.278 & 4628 \\
+& FedAvg forced & 0.374 $\pm$ 0.078 & 0.368 & 3088 \\
+& FedProx forced & 0.374 $\pm$ 0.079 & 0.368 & 3088 \\
+& Classical kernel & 0.671 $\pm$ 0.026 & 0.667 & 3092 \\
+\midrule
+\multirow{8}{*}{Fashion-4}
+& QProto-HOP & 0.746 $\pm$ 0.037 & 0.746 & 4628 \\
+& QProto prototype & 0.745 $\pm$ 0.038 & 0.745 & 3092 \\
+& No schema & 0.431 $\pm$ 0.024 & 0.430 & 3092 \\
+& Forced canonical & 0.429 $\pm$ 0.022 & 0.428 & 3092 \\
+& Wrong schema & 0.299 $\pm$ 0.027 & 0.298 & 4628 \\
+& FedAvg forced & 0.336 $\pm$ 0.064 & 0.339 & 3088 \\
+& FedProx forced & 0.335 $\pm$ 0.064 & 0.338 & 3088 \\
+& Classical kernel & 0.663 $\pm$ 0.017 & 0.663 & 3092 \\
+\midrule
+\multirow{8}{*}{CIFAR-4}
+& QProto-HOP & 0.486 $\pm$ 0.052 & 0.485 & 4628 \\
+& QProto prototype & 0.486 $\pm$ 0.052 & 0.485 & 3092 \\
+& No schema & 0.339 $\pm$ 0.017 & 0.339 & 3092 \\
+& Forced canonical & 0.339 $\pm$ 0.019 & 0.339 & 3092 \\
+& Wrong schema & 0.268 $\pm$ 0.015 & 0.267 & 4628 \\
+& FedAvg forced & 0.298 $\pm$ 0.046 & 0.299 & 3088 \\
+& FedProx forced & 0.298 $\pm$ 0.046 & 0.299 & 3088 \\
+& Classical kernel & 0.411 $\pm$ 0.010 & 0.411 & 3092 \\
+\bottomrule
+\end{tabular}
+\end{table*}

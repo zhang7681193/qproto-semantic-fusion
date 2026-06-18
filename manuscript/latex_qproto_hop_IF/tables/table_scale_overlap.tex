@@ -1,0 +1,30 @@
+\begin{table*}[t]
+\centering
+\caption{Scale and observable-overlap stress tests. Values are mean accuracy over three seeds. Detailed confidence intervals are reported in the released experiment logs.}
+\label{tab:scale-overlap}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llcccccc}
+\toprule
+Setting & Stress & FedAdam & FedProto & Shared & CProto & CHOP & Masked-HOP \\
+\midrule
+MNIST-10 & 50 clients & 0.518 & 0.532 & 0.702 & 0.745 & 0.747 & 0.752 \\
+MNIST-10 & 100 clients & 0.553 & 0.584 & 0.701 & 0.746 & 0.748 & 0.753 \\
+Fashion-10 & 50 clients & 0.590 & 0.602 & 0.660 & 0.669 & 0.669 & 0.672 \\
+Fashion-10 & 100 clients & 0.614 & 0.620 & 0.660 & 0.670 & 0.671 & 0.673 \\
+CIFAR-10 & 50 clients & 0.320 & 0.325 & 0.424 & 0.449 & 0.449 & 0.453 \\
+CIFAR-10 & 100 clients & 0.342 & 0.348 & 0.424 & 0.450 & 0.451 & 0.455 \\
+\midrule
+MNIST-10 & 20\% overlap & 0.173 & 0.158 & 0.555 & 0.688 & 0.689 & 0.737 \\
+MNIST-10 & 100\% overlap & 0.681 & 0.719 & 0.718 & 0.744 & 0.745 & 0.745 \\
+Fashion-10 & 20\% overlap & 0.238 & 0.220 & 0.598 & 0.651 & 0.651 & 0.670 \\
+Fashion-10 & 100\% overlap & 0.673 & 0.668 & 0.667 & 0.670 & 0.672 & 0.671 \\
+CIFAR-10 & 20\% overlap & 0.148 & 0.143 & 0.325 & 0.424 & 0.425 & 0.453 \\
+CIFAR-10 & 100\% overlap & 0.420 & 0.438 & 0.438 & 0.459 & 0.460 & 0.460 \\
+\midrule
+PennyLane high-order & 20\% overlap & 0.299 & 0.280 & 0.425 & 0.385 & 0.593 & 0.558 \\
+PennyLane high-order & 50\% overlap & 0.314 & 0.291 & 0.475 & 0.433 & 0.662 & 0.616 \\
+PennyLane high-order & 80\% overlap & 0.429 & 0.394 & 0.597 & 0.440 & 0.691 & 0.662 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

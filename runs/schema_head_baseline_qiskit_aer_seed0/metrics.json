@@ -1,0 +1,67 @@
+﻿{
+  "summaries": [
+    {
+      "method": "fedavg_schema",
+      "final_acc": 0.4635416666666667,
+      "final_balanced_acc": 0.4186619097956307,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 528,
+      "elapsed_sec": 0.08911561965942383
+    },
+    {
+      "method": "fedprox_schema",
+      "final_acc": 0.4666666666666667,
+      "final_balanced_acc": 0.41797976127554615,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 528,
+      "elapsed_sec": 0.059630632400512695
+    },
+    {
+      "method": "fedadam_schema",
+      "final_acc": 0.434375,
+      "final_balanced_acc": 0.41694580250176183,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 528,
+      "elapsed_sec": 0.05189967155456543
+    },
+    {
+      "method": "fedproto_schema",
+      "final_acc": 0.4552083333333333,
+      "final_balanced_acc": 0.42581428382663844,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.4159741680001357,
+      "bytes_per_client_round": 532,
+      "elapsed_sec": 0.024604320526123047
+    },
+    {
+      "method": "qproto_cproto",
+      "final_acc": 0.5833333333333334,
+      "final_balanced_acc": 0.538729959478506,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 1.075913532142313,
+      "bytes_per_client_round": 276,
+      "elapsed_sec": 0.023793697357177734
+    },
+    {
+      "method": "qproto_chop",
+      "final_acc": 0.5895833333333333,
+      "final_balanced_acc": 0.5444613284002819,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 1.075913532142313,
+      "bytes_per_client_round": 532,
+      "elapsed_sec": 0.04784417152404785
+    },
+    {
+      "method": "qproto_masked_hop",
+      "final_acc": 0.6187499999999999,
+      "final_balanced_acc": 0.5745386275546159,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 1.3713914574591228,
+      "bytes_per_client_round": 660,
+      "elapsed_sec": 0.05713653564453125
+    }
+  ]
+}

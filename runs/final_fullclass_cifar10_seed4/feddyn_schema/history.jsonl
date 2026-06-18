@@ -1,0 +1,3 @@
+﻿{"method": "feddyn_schema", "round": 1, "acc": 0.10600000000000001, "balanced_acc": 0.1040447876012377, "nll": 2.2996877117872625}
+{"method": "feddyn_schema", "round": 15, "acc": 0.26683333333333337, "balanced_acc": 0.2688345707587405, "nll": 2.2552554311679716}
+

@@ -1,0 +1,3 @@
+﻿{"method": "no_schema", "round": 1, "acc": 0.365, "balanced_acc": 0.3625683198380567, "class_gap_proxy": 0.28991612817390766, "distortion_proxy": 0.269867218938968, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.0}
+{"method": "no_schema", "round": 12, "acc": 0.3875, "balanced_acc": 0.38829369095816463, "class_gap_proxy": 0.24703863856472477, "distortion_proxy": 0.2524431387058217, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.1339195300050915}
+

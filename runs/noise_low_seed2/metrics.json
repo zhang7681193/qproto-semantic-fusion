@@ -1,0 +1,67 @@
+﻿{
+  "summaries": [
+    {
+      "method": "qproto_full",
+      "final_acc": 0.6194999999999999,
+      "final_balanced_acc": 0.624214906645185,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.5100375083196372,
+      "bytes_per_client_round": 1432,
+      "elapsed_sec": 2.342005729675293
+    },
+    {
+      "method": "qproto_hop",
+      "final_acc": 0.6160416666666666,
+      "final_balanced_acc": 0.6213360755460788,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.5083811904486217,
+      "bytes_per_client_round": 1428,
+      "elapsed_sec": 2.1383614540100098
+    },
+    {
+      "method": "qproto_proto",
+      "final_acc": 0.6149583333333333,
+      "final_balanced_acc": 0.6202696661546024,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.5083811904486217,
+      "bytes_per_client_round": 1044,
+      "elapsed_sec": 1.8567228317260742
+    },
+    {
+      "method": "no_schema",
+      "final_acc": 0.42470833333333335,
+      "final_balanced_acc": 0.42506167071879497,
+      "distortion_proxy": 0.27988141463633937,
+      "class_gap_proxy": 0.3018369758352745,
+      "bytes_per_client_round": 1044,
+      "elapsed_sec": 1.3093435764312744
+    },
+    {
+      "method": "wrong_schema",
+      "final_acc": 0.2825833333333333,
+      "final_balanced_acc": 0.2859301440118349,
+      "distortion_proxy": 0.1568880638532804,
+      "class_gap_proxy": 0.43003468881160734,
+      "bytes_per_client_round": 1428,
+      "elapsed_sec": 2.1648247241973877
+    },
+    {
+      "method": "fedavg_forced",
+      "final_acc": 0.43150000000000005,
+      "final_balanced_acc": 0.4375776214261494,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 1040,
+      "elapsed_sec": 1.5631179809570312
+    },
+    {
+      "method": "fedprox_forced",
+      "final_acc": 0.4301666666666667,
+      "final_balanced_acc": 0.4363921605773536,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 1040,
+      "elapsed_sec": 1.6328599452972412
+    }
+  ]
+}

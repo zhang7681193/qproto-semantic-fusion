@@ -1,0 +1,67 @@
+﻿{
+  "summaries": [
+    {
+      "method": "fedavg_schema",
+      "final_acc": 0.3061999999999999,
+      "final_balanced_acc": 0.2892493667532031,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 7720,
+      "elapsed_sec": 10.04161286354065
+    },
+    {
+      "method": "fedprox_schema",
+      "final_acc": 0.30122499999999997,
+      "final_balanced_acc": 0.284028206482682,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 7720,
+      "elapsed_sec": 9.838771104812622
+    },
+    {
+      "method": "fedadam_schema",
+      "final_acc": 0.45157499999999995,
+      "final_balanced_acc": 0.44751905126812197,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 7720,
+      "elapsed_sec": 9.76680064201355
+    },
+    {
+      "method": "fedproto_schema",
+      "final_acc": 0.42079999999999995,
+      "final_balanced_acc": 0.41818144562927434,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.3092350014002871,
+      "bytes_per_client_round": 7724,
+      "elapsed_sec": 10.748392581939697
+    },
+    {
+      "method": "qproto_cproto",
+      "final_acc": 0.7415499999999999,
+      "final_balanced_acc": 0.7385703802956685,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 2.627072788877477,
+      "bytes_per_client_round": 7724,
+      "elapsed_sec": 9.828972816467285
+    },
+    {
+      "method": "qproto_chop",
+      "final_acc": 0.745175,
+      "final_balanced_acc": 0.7421921658513774,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 2.627072788877477,
+      "bytes_per_client_round": 11564,
+      "elapsed_sec": 10.789407968521118
+    },
+    {
+      "method": "qproto_masked_hop",
+      "final_acc": 0.7483000000000002,
+      "final_balanced_acc": 0.7453343375042013,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 4.606663770445665,
+      "bytes_per_client_round": 24364,
+      "elapsed_sec": 12.73511290550232
+    }
+  ]
+}

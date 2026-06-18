@@ -1,0 +1,9 @@
+﻿{
+  "method": "qproto_cproto",
+  "final_acc": 0.6784649999999999,
+  "final_balanced_acc": 0.6812693779451107,
+  "distortion_proxy": 0.0,
+  "class_gap_proxy": 4.594761949837062,
+  "bytes_per_client_round": 7724,
+  "elapsed_sec": 149.47338032722473
+}

@@ -1,0 +1,47 @@
+\begin{table*}[t]
+\centering
+\caption{Strong FL baselines under the same heterogeneous-readout protocols. Full-class rows use five seeds; Qiskit Aer and PennyLane rows use three seeds. Bytes are per client per round.}
+\label{tab:strong-baselines}
+\scriptsize
+\renewcommand{\arraystretch}{0.93}
+\begin{tabular}{llccc}
+\toprule
+Setting & Method & Acc. & 95\% CI & Bytes \\
+\midrule
+MNIST-10 & FedAdam forced & 0.229 & 0.011 & 7720 \\
+MNIST-10 & FedAdam schema & 0.456 & 0.033 & 7720 \\
+MNIST-10 & FedProto schema & 0.412 & 0.029 & 7724 \\
+MNIST-10 & CProto, \(K=96\) & 0.738 & 0.030 & 7724 \\
+MNIST-10 & CHOP, \(K=96\) & 0.739 & 0.030 & 11564 \\
+MNIST-10 & \method{}-Masked-HOP & 0.744 & 0.027 & 24364 \\
+\midrule
+Fashion-10 & FedAdam forced & 0.254 & 0.019 & 7720 \\
+Fashion-10 & FedAdam schema & 0.544 & 0.033 & 7720 \\
+Fashion-10 & FedProto schema & 0.522 & 0.037 & 7724 \\
+Fashion-10 & CProto, \(K=96\) & 0.660 & 0.027 & 7724 \\
+Fashion-10 & CHOP, \(K=96\) & 0.660 & 0.027 & 11564 \\
+Fashion-10 & \method{}-Masked-HOP & 0.662 & 0.026 & 24364 \\
+\midrule
+CIFAR-10 & FedAdam forced & 0.166 & 0.012 & 7720 \\
+CIFAR-10 & FedAdam schema & 0.281 & 0.017 & 7720 \\
+CIFAR-10 & FedProto schema & 0.268 & 0.019 & 7724 \\
+CIFAR-10 & CProto, \(K=96\) & 0.450 & 0.005 & 7724 \\
+CIFAR-10 & CHOP, \(K=96\) & 0.451 & 0.004 & 11564 \\
+CIFAR-10 & \method{}-Masked-HOP & 0.454 & 0.004 & 24364 \\
+\midrule
+Qiskit Aer MNIST-4 & FedAdam forced & 0.379 & 0.034 & 528 \\
+Qiskit Aer MNIST-4 & FedAdam schema & 0.426 & 0.178 & 528 \\
+Qiskit Aer MNIST-4 & FedProto schema & 0.428 & 0.197 & 532 \\
+Qiskit Aer MNIST-4 & CProto, \(K=8\) & 0.576 & 0.045 & 276 \\
+Qiskit Aer MNIST-4 & CHOP, \(K=8\) & 0.579 & 0.043 & 532 \\
+Qiskit Aer MNIST-4 & \method{}-Masked-HOP & 0.597 & 0.065 & 660 \\
+\midrule
+PennyLane high-order & FedAdam forced & 0.359 & 0.037 & 1552 \\
+PennyLane high-order & FedAdam schema & 0.317 & 0.021 & 1552 \\
+PennyLane high-order & FedProto schema & 0.285 & 0.029 & 1556 \\
+PennyLane high-order & CProto, \(K=24\) & 0.403 & 0.061 & 788 \\
+PennyLane high-order & CHOP, \(K=24\) & 0.602 & 0.060 & 2324 \\
+PennyLane high-order & \method{}-Masked-HOP & 0.550 & 0.009 & 3476 \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,3 @@
+﻿{"method": "fedadam_schema", "round": 1, "acc": 0.315, "balanced_acc": 0.30753787878787875, "nll": 1.36517900519228}
+{"method": "fedadam_schema", "round": 12, "acc": 0.44125, "balanced_acc": 0.44247102434602437, "nll": 1.2519051747986691}
+

@@ -1,0 +1,43 @@
+\begin{table*}[t]
+\centering
+\caption{IF-style heterogeneous fusion controls on full-class datasets. Zero-fill and mask-only are generic missing-observation controls; shared-observable aggregation uses only the intersection observed by every client. Bytes are per client per round.}
+\label{tab:if-fusion-controls}
+\begin{tabular}{llccc}
+\toprule
+Dataset & Method & Acc. & 95\% CI & Bytes \\
+\midrule
+MNIST-10 & Mask-only metadata & 0.099 & 0.003 & 7724 \\
+MNIST-10 & Schema zero-fill & 0.692 & 0.020 & 7724 \\
+MNIST-10 & No schema & 0.219 & 0.010 & 7724 \\
+MNIST-10 & Forced canonical & 0.218 & 0.012 & 7724 \\
+MNIST-10 & Shared observables & 0.695 & 0.018 & 7724 \\
+MNIST-10 & RFF prototype & 0.407 & 0.032 & 7724 \\
+MNIST-10 & CProto & 0.738 & 0.030 & 7724 \\
+MNIST-10 & CHOP & 0.739 & 0.030 & 11564 \\
+MNIST-10 & QProto-Masked & 0.743 & 0.027 & 20524 \\
+MNIST-10 & QProto-Masked-HOP & 0.744 & 0.027 & 24364 \\
+\midrule
+Fashion-10 & Mask-only metadata & 0.100 & 0.002 & 7724 \\
+Fashion-10 & Schema zero-fill & 0.647 & 0.022 & 7724 \\
+Fashion-10 & No schema & 0.240 & 0.025 & 7724 \\
+Fashion-10 & Forced canonical & 0.242 & 0.026 & 7724 \\
+Fashion-10 & Shared observables & 0.656 & 0.019 & 7724 \\
+Fashion-10 & RFF prototype & 0.523 & 0.045 & 7724 \\
+Fashion-10 & CProto & 0.660 & 0.027 & 7724 \\
+Fashion-10 & CHOP & 0.660 & 0.027 & 11564 \\
+Fashion-10 & QProto-Masked & 0.661 & 0.026 & 20524 \\
+Fashion-10 & QProto-Masked-HOP & 0.662 & 0.026 & 24364 \\
+\midrule
+CIFAR-10 & Mask-only metadata & 0.100 & 0.001 & 7724 \\
+CIFAR-10 & Schema zero-fill & 0.421 & 0.002 & 7724 \\
+CIFAR-10 & No schema & 0.166 & 0.006 & 7724 \\
+CIFAR-10 & Forced canonical & 0.167 & 0.007 & 7724 \\
+CIFAR-10 & Shared observables & 0.425 & 0.017 & 7724 \\
+CIFAR-10 & RFF prototype & 0.266 & 0.024 & 7724 \\
+CIFAR-10 & CProto & 0.450 & 0.005 & 7724 \\
+CIFAR-10 & CHOP & 0.451 & 0.004 & 11564 \\
+CIFAR-10 & QProto-Masked & 0.454 & 0.003 & 20524 \\
+CIFAR-10 & QProto-Masked-HOP & 0.454 & 0.004 & 24364 \\
+\bottomrule
+\end{tabular}
+\end{table*}

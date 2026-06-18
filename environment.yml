@@ -1,0 +1,19 @@
+name: qproto-semantic-fusion
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - pillow
+  - pip
+  - pip:
+      - torch
+      - torchvision
+      - pypdf
+      - qiskit-aer
+      - pennylane

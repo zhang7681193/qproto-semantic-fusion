@@ -1,0 +1,22 @@
+﻿{
+  "summaries": [
+    {
+      "method": "qproto_cproto",
+      "final_acc": 0.6455500000000001,
+      "final_balanced_acc": 0.6487262842112131,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 2.9306598404973574,
+      "bytes_per_client_round": 2604,
+      "elapsed_sec": 11.907542705535889
+    },
+    {
+      "method": "qproto_chop",
+      "final_acc": 0.646475,
+      "final_balanced_acc": 0.6497066256485328,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 2.9306598404973574,
+      "bytes_per_client_round": 6444,
+      "elapsed_sec": 14.35903549194336
+    }
+  ]
+}

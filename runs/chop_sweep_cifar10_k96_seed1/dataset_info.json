@@ -1,0 +1,7 @@
+﻿{
+  "dataset": "npz",
+  "n_train": 12000,
+  "n_test": 3000,
+  "input_dim": 512,
+  "n_classes": 10
+}

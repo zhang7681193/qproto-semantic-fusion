@@ -1,0 +1,9 @@
+﻿{
+  "method": "fedproto_schema",
+  "final_acc": 0.35994999999999994,
+  "final_balanced_acc": 0.3572513682095721,
+  "distortion_proxy": 0.0,
+  "class_gap_proxy": 0.3640080908851556,
+  "bytes_per_client_round": 7724,
+  "elapsed_sec": 6.56404185295105
+}

@@ -1,0 +1,3 @@
+﻿{"method": "qproto_chop", "round": 1, "acc": 0.7328750000000002, "balanced_acc": 0.7284730681040554, "class_gap_proxy": 2.8639950471483155, "distortion_proxy": 0.0, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 0.0, "coverage_proxy": 0.9947916666666666, "hop_gap_proxy": 1.2896940956214424}
+{"method": "qproto_chop", "round": 12, "acc": 0.7365499999999999, "balanced_acc": 0.7323591076725664, "class_gap_proxy": 2.8760131525266646, "distortion_proxy": 0.0, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 1.0824561163742459, "coverage_proxy": 1.0, "hop_gap_proxy": 1.2232894728994588}
+

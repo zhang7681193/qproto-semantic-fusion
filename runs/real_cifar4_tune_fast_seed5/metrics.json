@@ -1,0 +1,67 @@
+﻿{
+  "summaries": [
+    {
+      "method": "qproto_full",
+      "final_acc": 0.5002916666666666,
+      "final_balanced_acc": 0.5039865025779856,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.23904146211384825,
+      "bytes_per_client_round": 4632,
+      "elapsed_sec": 29.29559350013733
+    },
+    {
+      "method": "qproto_hop",
+      "final_acc": 0.5032916666666666,
+      "final_balanced_acc": 0.5050729979871498,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.2379227457602342,
+      "bytes_per_client_round": 4628,
+      "elapsed_sec": 23.49145817756653
+    },
+    {
+      "method": "qproto_proto",
+      "final_acc": 0.5029166666666668,
+      "final_balanced_acc": 0.5046914632784165,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.2379227457602342,
+      "bytes_per_client_round": 3092,
+      "elapsed_sec": 24.416027307510376
+    },
+    {
+      "method": "no_schema",
+      "final_acc": 0.3280416666666666,
+      "final_balanced_acc": 0.3288973558225935,
+      "distortion_proxy": 0.11711354043906953,
+      "class_gap_proxy": 0.10169307749283842,
+      "bytes_per_client_round": 3092,
+      "elapsed_sec": 21.358158588409424
+    },
+    {
+      "method": "wrong_schema",
+      "final_acc": 0.259625,
+      "final_balanced_acc": 0.26137747912184256,
+      "distortion_proxy": 0.4185699445559528,
+      "class_gap_proxy": 0.22966649227507677,
+      "bytes_per_client_round": 4628,
+      "elapsed_sec": 29.113768339157104
+    },
+    {
+      "method": "forced_canonical",
+      "final_acc": 0.330375,
+      "final_balanced_acc": 0.33121763134074284,
+      "distortion_proxy": 0.1107972239750204,
+      "class_gap_proxy": 0.1037604330853008,
+      "bytes_per_client_round": 3092,
+      "elapsed_sec": 24.98993468284607
+    },
+    {
+      "method": "fedavg_forced",
+      "final_acc": 0.31233333333333335,
+      "final_balanced_acc": 0.3194794959576343,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 3088,
+      "elapsed_sec": 23.84592604637146
+    }
+  ]
+}

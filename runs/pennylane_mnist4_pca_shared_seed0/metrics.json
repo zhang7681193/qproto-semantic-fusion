@@ -1,0 +1,67 @@
+﻿{
+  "summaries": [
+    {
+      "method": "qproto_hop",
+      "final_acc": 0.327625,
+      "final_balanced_acc": 0.3293965448120212,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.2880190506978637,
+      "bytes_per_client_round": 2324,
+      "elapsed_sec": 0.4355311393737793
+    },
+    {
+      "method": "qproto_proto",
+      "final_acc": 0.327375,
+      "final_balanced_acc": 0.32911999613945475,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.2880190506978637,
+      "bytes_per_client_round": 1556,
+      "elapsed_sec": 0.365741491317749
+    },
+    {
+      "method": "shared_observable",
+      "final_acc": 0.5411250000000001,
+      "final_balanced_acc": 0.5351753355704698,
+      "distortion_proxy": 1.195019168920645,
+      "class_gap_proxy": 0.17780785106840405,
+      "bytes_per_client_round": 1556,
+      "elapsed_sec": 0.38339877128601074
+    },
+    {
+      "method": "no_schema",
+      "final_acc": 0.3425,
+      "final_balanced_acc": 0.3392044010215597,
+      "distortion_proxy": 0.31618528156730097,
+      "class_gap_proxy": 0.11749878356546241,
+      "bytes_per_client_round": 1556,
+      "elapsed_sec": 0.2681846618652344
+    },
+    {
+      "method": "wrong_schema",
+      "final_acc": 0.28025,
+      "final_balanced_acc": 0.2828927510839223,
+      "distortion_proxy": 0.106978650034693,
+      "class_gap_proxy": 0.2563215597293201,
+      "bytes_per_client_round": 2324,
+      "elapsed_sec": 0.557105541229248
+    },
+    {
+      "method": "forced_canonical",
+      "final_acc": 0.35375,
+      "final_balanced_acc": 0.35069547722278316,
+      "distortion_proxy": 0.33318391608921605,
+      "class_gap_proxy": 0.12147141344433199,
+      "bytes_per_client_round": 1556,
+      "elapsed_sec": 0.43004751205444336
+    },
+    {
+      "method": "fedavg_forced",
+      "final_acc": 0.34850000000000003,
+      "final_balanced_acc": 0.31674208588228303,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 1552,
+      "elapsed_sec": 0.5061941146850586
+    }
+  ]
+}

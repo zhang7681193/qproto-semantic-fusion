@@ -1,0 +1,24 @@
+\begin{table*}[t]
+\centering
+\caption{Protocol manifest for the main experiments. Anchors are public/unlabeled and are used only for preprocessing, imputation, or key selection; test labels are never used for schema construction or key selection.}
+\label{tab:protocol-manifest}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+Experiment & Seeds & Clients & Source dictionary & Client schema sampling & Public anchors & Tuned hyperparameters \\
+\midrule
+Full-class images & 5 & 20 & simulated observable dictionary from image features & heterogeneous observable subsets/order & train-only public subset & \(K,h,\lambda\) fixed by preliminary grid \\
+UCI HAR & 5 & 20 & feature-name sensor groups & 1 common group + random private groups & train-only anchor features & PCA rank, \(K,h,\lambda\), torch epochs fixed before reporting \\
+UCI Multiple Features & 10 & 20 & six feature families & 1 common weak view + 2 private views & train-only anchor features & source-balanced score, \(K,h,\lambda\), torch epochs fixed before reporting \\
+MHEALTH & 10 & 20 & chest/ECG/ankle/arm wearable sources & subject-held-out windows, 1 common source + private sources & train-only anchor windows & \(K,h,\lambda\), window size, and torch epochs fixed before reporting \\
+PAMAP2 & 5 & 20 & heart-rate/hand/chest/ankle wearable sources & subject-held-out windows, 1 common source + private sources & train-only anchor windows & \(K,h,\lambda\), adaptive margin, window size, and torch epochs fixed before reporting \\
+Hydraulic Systems & 5 & 20 & named industrial sensor blocks & cooler-state clients with shared/private sensor groups & train-only anchor records & \(K,h,\lambda\), HeMIS/MLP epochs, and equal-byte payload fixed before reporting \\
+WDBC & 10 & 20 & ten biomedical measurement families & 1 common family + random private families & train-only anchor features & same non-quantum grid as HAR/MFeat \\
+Gas Drift boundary check & 5 & 20 & gas-sensor blocks & random and temporal source splits & train-only anchor records & cross-sensor HOP screen and low-order baselines fixed before reporting \\
+Covariance sensing & 5 & 20 & controlled source dictionary & heterogeneous low-overlap schemas & generated public anchors & \(K,h,\lambda\) selected by communication budget \\
+Qiskit/PennyLane checks & 3--5 & 20 & circuit-generated observable readouts & heterogeneous basis/subset/depth settings & circuit-generated public anchors & no test-label tuning; Aer/PennyLane settings fixed \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

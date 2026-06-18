@@ -1,0 +1,26 @@
+\begin{table*}[t]
+\centering
+\caption{Paired seed-level accuracy deltas for the main high-order and key-selection claims.}
+\label{tab:pairwise-deltas}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccc}
+\toprule
+Comparison & \(n\) & Mean delta & Wins \\
+\midrule
+Masked-HOP minus Masked, PennyLane high-order & 3 & 0.128 \(\pm\) 0.042 & 3/3 \\
+Masked-HOP minus old HOP, PennyLane high-order & 3 & 0.230 \(\pm\) 0.035 & 3/3 \\
+CHOP minus CProto, PennyLane high-order \(K=8\) & 3 & 0.250 \(\pm\) 0.071 & 3/3 \\
+Coverage-key CHOP minus random-key CHOP, \(K=8\) & 5 & 0.228 \(\pm\) 0.066 & 5/5 \\
+Variance-key CHOP minus random-key CHOP, MNIST-10 & 3 & 0.089 \(\pm\) 0.016 & 3/3 \\
+Coverage-key CHOP minus random-key CHOP, CIFAR-10 & 3 & 0.061 \(\pm\) 0.044 & 3/3 \\
+CHOP minus schema-FedProto, MNIST-10 & 3 & 0.333 \(\pm\) 0.027 & 3/3 \\
+CHOP minus schema-FedProto, CIFAR-10 & 3 & 0.179 \(\pm\) 0.058 & 3/3 \\
+CHOP minus schema-FedProto, Qiskit Aer & 3 & 0.151 \(\pm\) 0.227 & 3/3 \\
+CHOP minus schema-FedProto, PennyLane high-order & 3 & 0.317 \(\pm\) 0.031 & 3/3 \\
+CHOP minus schema-FedAdam, MNIST-10 & 3 & 0.291 \(\pm\) 0.031 & 3/3 \\
+CHOP minus schema-FedAdam, CIFAR-10 & 3 & 0.169 \(\pm\) 0.054 & 3/3 \\
+CHOP minus schema-FedAdam, PennyLane high-order & 3 & 0.286 \(\pm\) 0.042 & 3/3 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

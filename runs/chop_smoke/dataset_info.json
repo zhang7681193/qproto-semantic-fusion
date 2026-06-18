@@ -1,0 +1,7 @@
+﻿{
+  "dataset": "synthetic",
+  "n_train": 800,
+  "n_test": 300,
+  "input_dim": 12,
+  "n_classes": 4
+}

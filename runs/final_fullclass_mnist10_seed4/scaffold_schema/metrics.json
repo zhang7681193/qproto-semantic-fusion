@@ -1,0 +1,9 @@
+﻿{
+  "method": "scaffold_schema",
+  "final_acc": 0.3317,
+  "final_balanced_acc": 0.3291041901921726,
+  "distortion_proxy": 0.0,
+  "class_gap_proxy": 0.0,
+  "bytes_per_client_round": 15440,
+  "elapsed_sec": 8.325509786605835
+}

@@ -1,0 +1,67 @@
+﻿{
+  "summaries": [
+    {
+      "method": "qproto_full",
+      "final_acc": 0.6663333333333333,
+      "final_balanced_acc": 0.6636089330715322,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.48814582390747857,
+      "bytes_per_client_round": 1432,
+      "elapsed_sec": 2.1631999015808105
+    },
+    {
+      "method": "qproto_hop",
+      "final_acc": 0.642875,
+      "final_balanced_acc": 0.6406523057072888,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.5077809597777148,
+      "bytes_per_client_round": 1428,
+      "elapsed_sec": 2.0121946334838867
+    },
+    {
+      "method": "qproto_proto",
+      "final_acc": 0.6412083333333334,
+      "final_balanced_acc": 0.6389428380591486,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.5077809597777148,
+      "bytes_per_client_round": 1044,
+      "elapsed_sec": 2.119788885116577
+    },
+    {
+      "method": "no_schema",
+      "final_acc": 0.44683333333333336,
+      "final_balanced_acc": 0.4463694345763033,
+      "distortion_proxy": 0.22460631963143876,
+      "class_gap_proxy": 0.3024634242207061,
+      "bytes_per_client_round": 1044,
+      "elapsed_sec": 1.3106930255889893
+    },
+    {
+      "method": "wrong_schema",
+      "final_acc": 0.28745833333333337,
+      "final_balanced_acc": 0.2903289568641082,
+      "distortion_proxy": 0.1495782887715418,
+      "class_gap_proxy": 0.4209128294734105,
+      "bytes_per_client_round": 1428,
+      "elapsed_sec": 2.0336976051330566
+    },
+    {
+      "method": "fedavg_forced",
+      "final_acc": 0.2765833333333333,
+      "final_balanced_acc": 0.28797004084306943,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 1040,
+      "elapsed_sec": 1.5456883907318115
+    },
+    {
+      "method": "fedprox_forced",
+      "final_acc": 0.2755416666666667,
+      "final_balanced_acc": 0.2869311418139676,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 1040,
+      "elapsed_sec": 1.511490821838379
+    }
+  ]
+}

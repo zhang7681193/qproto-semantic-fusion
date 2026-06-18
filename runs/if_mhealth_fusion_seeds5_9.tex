@@ -1,0 +1,36 @@
+﻿\begin{table*}[t]
+\centering
+\caption{Real wearable multi-source missing-view fusion benchmark on UCI MHEALTH under a subject-held-out split. Windowed readout statistics are built from chest accelerometer, chest ECG, ankle IMU, and arm IMU sources. Equal-byte rows use the same per-client per-round payload as CHOP.}
+\label{tab:if-mhealth-fusion}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.94}
+\begin{tabular}{lcccc}
+\toprule
+Method & Acc. & 95\% CI & Bytes & Runtime (s) \\
+\midrule
+Mask-only metadata & 0.084 & 0.005 & 11092 & 0.559 \\
+Zero-fill prototype & 0.774 & 0.059 & 11092 & 0.572 \\
+Mean-impute prototype & 0.774 & 0.062 & 11092 & 0.667 \\
+Value+mask prototype & 0.252 & 0.017 & 22132 & 1.193 \\
+Anchor PCA imputation & 0.750 & 0.062 & 11092 & 11.416 \\
+Learned ridge imputation & 0.811 & 0.055 & 11092 & 1.334 \\
+Anchor autoencoder imputation & 0.783 & 0.052 & 11092 & 10.518 \\
+Mask-aware pooled MLP & 0.840 & 0.042 & 22132 & 1.751 \\
+View-wise late fusion & 0.801 & 0.056 & 11092 & 0.318 \\
+Shared-view prototype & 0.726 & 0.072 & 1492 & 0.072 \\
+Shared-view RFF equal bytes & 0.730 & 0.076 & 13876 & 0.875 \\
+Zero-fill RFF equal bytes & 0.758 & 0.063 & 13876 & 1.015 \\
+Coverage prototype all & 0.807 & 0.054 & 22132 & 1.410 \\
+Group-balanced CProto all & 0.801 & 0.056 & 22132 & 1.657 \\
+CProto equal bytes & 0.840 & 0.030 & 13876 & 0.910 \\
+Group-balanced CProto equal bytes & 0.810 & 0.026 & 13876 & 1.006 \\
+Random-key CProto equal bytes & 0.797 & 0.069 & 13876 & 0.611 \\
+Random-key HOP equal bytes & 0.797 & 0.069 & 13876 & 1.166 \\
+CHOP equal bytes & 0.828 & 0.096 & 13876 & 1.181 \\
+Adaptive CHOP equal bytes & 0.862 & 0.053 & 13876 & 1.164 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+

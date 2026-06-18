@@ -1,0 +1,4 @@
+﻿{"method": "fedproto_schema", "round": 1, "acc": 0.5850000000000001, "balanced_acc": 0.594533456920904, "class_gap_proxy": 0.6843033981011876, "distortion_proxy": 0.0, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.0}
+{"method": "fedproto_schema", "round": 2, "acc": 0.64125, "balanced_acc": 0.641258386299435, "class_gap_proxy": 0.6495167229224194, "distortion_proxy": 0.0, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.21134332439832376}
+{"method": "fedproto_schema", "round": 3, "acc": 0.645625, "balanced_acc": 0.651060793314501, "class_gap_proxy": 0.6225176476911172, "distortion_proxy": 0.0, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.24016119084087104}
+

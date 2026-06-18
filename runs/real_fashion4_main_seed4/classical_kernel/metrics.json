@@ -1,0 +1,9 @@
+﻿{
+  "method": "classical_kernel",
+  "final_acc": 0.68,
+  "final_balanced_acc": 0.678481153377948,
+  "distortion_proxy": 0.0,
+  "class_gap_proxy": 0.19881148388858016,
+  "bytes_per_client_round": 3092,
+  "elapsed_sec": 3.2490649223327637
+}

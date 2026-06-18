@@ -1,0 +1,138 @@
+﻿[
+  {
+    "client_id": 0,
+    "local_to_global": [
+      6,
+      7,
+      9,
+      0,
+      4,
+      1,
+      8,
+      11
+    ],
+    "readout_p": 0.0,
+    "depol_p": 0.0,
+    "depth": 4,
+    "shots": 1024
+  },
+  {
+    "client_id": 1,
+    "local_to_global": [
+      0,
+      2,
+      1,
+      4,
+      5,
+      10,
+      7,
+      6
+    ],
+    "readout_p": 0.0,
+    "depol_p": 0.0,
+    "depth": 2,
+    "shots": 1024
+  },
+  {
+    "client_id": 2,
+    "local_to_global": [
+      2,
+      3,
+      6,
+      0,
+      1,
+      4,
+      7,
+      8
+    ],
+    "readout_p": 0.0,
+    "depol_p": 0.0,
+    "depth": 8,
+    "shots": 1024
+  },
+  {
+    "client_id": 3,
+    "local_to_global": [
+      8,
+      3,
+      6,
+      4,
+      0,
+      11,
+      7,
+      2
+    ],
+    "readout_p": 0.0,
+    "depol_p": 0.0,
+    "depth": 8,
+    "shots": 1024
+  },
+  {
+    "client_id": 4,
+    "local_to_global": [
+      6,
+      3,
+      4,
+      9,
+      8,
+      7,
+      0,
+      1
+    ],
+    "readout_p": 0.0,
+    "depol_p": 0.0,
+    "depth": 4,
+    "shots": 1024
+  },
+  {
+    "client_id": 5,
+    "local_to_global": [
+      9,
+      0,
+      4,
+      10,
+      2,
+      6,
+      7,
+      11
+    ],
+    "readout_p": 0.0,
+    "depol_p": 0.0,
+    "depth": 5,
+    "shots": 1024
+  },
+  {
+    "client_id": 6,
+    "local_to_global": [
+      3,
+      5,
+      9,
+      7,
+      0,
+      6,
+      4,
+      8
+    ],
+    "readout_p": 0.0,
+    "depol_p": 0.0,
+    "depth": 8,
+    "shots": 1024
+  },
+  {
+    "client_id": 7,
+    "local_to_global": [
+      0,
+      4,
+      7,
+      11,
+      6,
+      2,
+      9,
+      5
+    ],
+    "readout_p": 0.0,
+    "depol_p": 0.0,
+    "depth": 8,
+    "shots": 1024
+  }
+]

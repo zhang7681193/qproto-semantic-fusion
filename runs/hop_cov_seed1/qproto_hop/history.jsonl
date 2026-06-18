@@ -1,0 +1,10 @@
+﻿{"method": "qproto_hop", "round": 1, "acc": 0.8101041666666666, "balanced_acc": 0.8098488626557709, "class_gap_proxy": 0.31776047661541956, "distortion_proxy": 0.0, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.0}
+{"method": "qproto_hop", "round": 5, "acc": 0.8102604166666667, "balanced_acc": 0.8097770839685497, "class_gap_proxy": 0.32121412549587997, "distortion_proxy": 0.0, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.037047846770971365}
+{"method": "qproto_hop", "round": 10, "acc": 0.8213020833333333, "balanced_acc": 0.820829139461779, "class_gap_proxy": 0.32087847624169435, "distortion_proxy": 0.0, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.08892032881459644}
+{"method": "qproto_hop", "round": 15, "acc": 0.8134895833333333, "balanced_acc": 0.8133395706107706, "class_gap_proxy": 0.32286612318457586, "distortion_proxy": 0.0, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.058234651103141896}
+{"method": "qproto_hop", "round": 20, "acc": 0.8215625, "balanced_acc": 0.821235879277407, "class_gap_proxy": 0.3272921531166277, "distortion_proxy": 0.0, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.10375340109795492}
+{"method": "qproto_hop", "round": 25, "acc": 0.8194270833333334, "balanced_acc": 0.819116836299824, "class_gap_proxy": 0.323262917886523, "distortion_proxy": 0.0, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.05296990921371039}
+{"method": "qproto_hop", "round": 30, "acc": 0.8102083333333333, "balanced_acc": 0.8099548267719436, "class_gap_proxy": 0.3224696153721603, "distortion_proxy": 0.0, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.08396453501290996}
+{"method": "qproto_hop", "round": 35, "acc": 0.8086458333333333, "balanced_acc": 0.8084025457009287, "class_gap_proxy": 0.32406184437372637, "distortion_proxy": 0.0, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.07942092315675035}
+{"method": "qproto_hop", "round": 40, "acc": 0.8154166666666667, "balanced_acc": 0.8150251057863164, "class_gap_proxy": 0.3127991481307777, "distortion_proxy": 0.0, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.10658541445730169}
+

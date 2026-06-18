@@ -1,0 +1,190 @@
+\section{Analysis}
+
+This section gives the formal pieces needed for the paper's main claim. The results are deliberately modest. They do not claim a hardware-independent quantum advantage; they show that schema mismatch creates an irreducible semantic error, while correct schema binding turns aggregation into concentration of comparable distributional statistics. The supplement adds the longer plug-in margin argument, group-balanced scoring analysis, adaptive-CHOP calibration bound, and finite-budget error decomposition.
+
+\begin{assumption}[Bounded adapted readouts]
+For every client \(i\), input \(x\), and observable key \(o_j\), the adapted readout value satisfies \(|v_{ij}(x)|\le 1\), and the mask coordinate is binary. The kernel \(k\) is bounded by one and is approximated by \(d\) random Fourier features.
+\end{assumption}
+
+\begin{assumption}[Correct schema model]
+There exists a public observable dictionary \(\cO=\{o_1,\ldots,o_D\}\). Under correct schema, every local coordinate maps to its true public observable key. Under wrong schema, at least one positive-mass observable subset is mapped to an incorrect key.
+\end{assumption}
+
+\begin{assumption}[Regular sketches]
+The low-order feature map \(\phi\) and the HOP feature map \(\psi\) are bounded and Lipschitz on the adapted readout domain. For random feature dimension \(d\) and HOP dimension \(h\), their approximation errors satisfy the usual Monte Carlo rates \(O(d^{-1/2})\) and \(O(h^{-1/2})\) with high probability.
+\end{assumption}
+
+\subsection{Schema Mismatch Lower Bound}
+
+\begin{theorem}[Irreducible schema mismatch error]
+Consider two clients with class-conditional semantic prototypes \(p_{1,c},p_{2,c}\in\R^D\). If client 2 uses a wrong schema permutation \(P\neq I\) and the server averages in the reported coordinates, then there exist class distributions with identical sample size and zero measurement noise such that the aggregated prototype differs from the correct semantic prototype by
+\begin{equation}
+    \left\|
+    \frac{p_{1,c}+Pp_{2,c}}{2}
+    -
+    \frac{p_{1,c}+p_{2,c}}{2}
+    \right\|_2
+    \ge
+    \frac{1}{2}\|(P-I)p_{2,c}\|_2.
+\end{equation}
+The error persists as the number of samples, shots, and sketch dimension go to infinity whenever \(p_{2,c}\) is not in the fixed subspace of \(P\).
+\end{theorem}
+
+\begin{proof}
+With infinite samples and noiseless measurements, both clients recover their population semantic prototypes exactly. The correct aggregate is \((p_{1,c}+p_{2,c})/2\). If client 2 reports coordinates through \(P\), the server forms \((p_{1,c}+Pp_{2,c})/2\). Subtracting the two aggregates gives \((P-I)p_{2,c}/2\), so the displayed norm follows with equality. The right-hand side is independent of sample size, shot budget, and sketch dimension. It is nonzero whenever \(p_{2,c}\notin\mathrm{Fix}(P)\).
+\end{proof}
+
+\subsection{Correct-Schema Consistency}
+
+\begin{theorem}[Consistency of comparable kernel prototypes]
+Under the correct schema model and bounded readouts, let
+\begin{equation}
+    \mu_c^\star=\E_{z\sim P_c}[\phi(z)]
+\end{equation}
+be the class-\(c\) mean in the public value-mask domain for the finite feature map. If class samples are independent and all clients use the adapter \(A_{\schema_i}\), then the aggregated prototype \(\hat{\mu}_c\) is a consistent estimator of \(\mu_c^\star\). If the comparison is made to the infinite-dimensional kernel mean embedding, then with probability at least \(1-\delta\),
+\begin{equation}
+    \|\hat{\mu}_c-\mu_c^\star\|_2
+    \le
+    C\!\left(
+    \sqrt{\frac{\log(1/\delta)}{n_c}}
+    +
+    \sqrt{\frac{\log(1/\delta)}{d}}
+    +
+    \sqrt{\frac{\log(1/\delta)}{S_{\min}}}
+    \right),
+\end{equation}
+where \(n_c\) is the total number of class-\(c\) examples, \(d\) is the RFF dimension, \(S_{\min}\) is the minimum shot budget, and \(C\) depends on the bounded-domain and Lipschitz constants.
+\end{theorem}
+
+\begin{proof}
+Under correct schema, every local readout is first mapped into the same public value-mask space. Thus the server average is a class-count-weighted empirical mean of comparable random variables \(\phi(z)\). The boundedness assumption gives a vector-valued concentration term of order \(O(\sqrt{\log(1/\delta)/n_c})\). If one compares the finite RFF mean to the exact kernel mean, standard random-feature concentration contributes \(O(\sqrt{\log(1/\delta)/d})\). Finally, each adapted expectation is an average of bounded measurement outcomes, so finite shots perturb the readout by \(O(\sqrt{\log(1/\delta)/S_{\min}})\); Lipschitzness of \(\phi\) transfers this perturbation to the feature mean. Union-bounding the three deviations yields the result. There is no schema-mismatch term because all coordinates are aggregated under their public observable identities.
+\end{proof}
+
+\begin{theorem}[One explicit finite-budget form]
+\label{thm:finite-budget}
+Let \(m=2D\) be the value-mask dimension, let \(\|\phi(z)\|_2\le R_\phi\), and let \(\phi\) be \(L_\phi\)-Lipschitz. Assume each observed Pauli expectation is estimated from at least \(S_{\min}\) independent shots and each class has \(n_c\) total examples after client aggregation. For a fixed query point and a fixed class \(c\), the score error between the empirical finite-shot RFF prototype and the population exact-kernel prototype is bounded with probability at least \(1-\delta\) by
+\begin{equation}
+\begin{aligned}
+    |\widehat{s}_c(z)-s_c^\star(z)|
+    \le&
+    2R_\phi^2\sqrt{\frac{2\log(6/\delta)}{n_c}}
+    +2R_\phi L_\phi
+    \sqrt{\frac{2D\log(6D/\delta)}{S_{\min}}}  \\
+    &+
+    2\sqrt{\frac{2\log(6/\delta)}{d}} .
+\end{aligned}
+\end{equation}
+Consequently, if the population class-margin exceeds twice the right-hand side uniformly over competing classes, nearest-prototype classification is unchanged by finite samples, finite shots, and finite RFF dimension.
+\end{theorem}
+
+\begin{proof}
+Decompose the score error into three terms: empirical prototype concentration for bounded vectors, perturbation of the adapted readout caused by finite-shot measurement, and random-feature approximation of the exact kernel score. The first term follows from Hilbert-space Hoeffding for vectors bounded by \(R_\phi\). For the second term, Hoeffding applied to \(D\) Pauli expectation estimates gives \(\|\tilde z-z\|_2\le\sqrt{2D\log(6D/\delta)/S_{\min}}\) with high probability; Lipschitzness of \(\phi\) and the bound \(\|\phi\|\le R_\phi\) convert this to score error. The third term is the standard bounded random-feature Monte Carlo error for a fixed pair. A union bound over the three events gives the displayed inequality. The margin statement follows by comparing every incorrect-class score to the correct-class score.
+\end{proof}
+
+\subsection{Coverage-Aware Value/Count Estimation}
+
+\begin{theorem}[Coverage-aware prototype bias and variance]
+\label{thm:coverage-estimator}
+Fix a class \(c\) and public source coordinate \(j\). Let \(M_{ij}\in\{0,1\}\) indicate whether client \(i\) observes coordinate \(j\), and let \(V_{ij}\in[-1,1]\) be the corresponding adapted value for samples in class \(c\). The coverage-aware estimator
+\begin{equation}
+    \hat{m}_{cj}
+    =
+    \frac{\sum_i\sum_{\ell:y_{i\ell}=c}M_{ij\ell}V_{ij\ell}}
+    {\sum_i\sum_{\ell:y_{i\ell}=c}M_{ij\ell}}
+\end{equation}
+is unbiased for \(m_{cj}=\E[V_j\mid y=c,M_j=1]\). If the missingness mechanism is conditionally source-independent, \(M_j\perp V_j\mid y=c\), then \(m_{cj}=\E[V_j\mid y=c]\). Conditional on \(N_{cj}\) observed class-\(c\) values for coordinate \(j\),
+\begin{equation}
+    \Pr(|\hat{m}_{cj}-m_{cj}|>\epsilon\mid N_{cj})
+    \le 2\exp(-N_{cj}\epsilon^2/2).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The estimator is an empirical mean over the observed class-\(c\) values for source \(j\), so unbiasedness for \(\E[V_j\mid y=c,M_j=1]\) follows directly. Under conditional source-independent missingness, the observed and full class-conditional value distributions coincide. Since \(V_j\in[-1,1]\), Hoeffding's inequality gives the displayed conditional concentration bound. Thus the variance term is controlled by coverage count \(N_{cj}\), which motivates storing value sums and observation counts separately rather than imputing missing coordinates as zero.
+\end{proof}
+
+\begin{theorem}[Partially incorrect schema metadata]
+\label{thm:noisy-schema}
+Suppose a fraction \(\rho_{ij}\) of observed coordinate assignments for source \(j\) are mapped to incorrect public keys, and assume \(|V_{ij}|\le1\). Let \(\hat{m}_{cj}^{\mathrm{noisy}}\) be the coverage-aware estimator formed with this noisy schema and \(\hat{m}_{cj}^{\mathrm{clean}}\) the estimator formed with the true schema on the same observations. Then
+\begin{equation}
+    |\E[\hat{m}_{cj}^{\mathrm{noisy}}]-\E[\hat{m}_{cj}^{\mathrm{clean}}]|
+    \le 2\rho_{cj},
+\end{equation}
+where \(\rho_{cj}\) is the class-\(c\) observed mass assigned to an incorrect key for coordinate \(j\). The error does not vanish with additional samples unless \(\rho_{cj}\to0\).
+\end{theorem}
+
+\begin{proof}
+Incorrect schema assignments replace some values whose correct coordinate is \(j\) with values from other coordinates, or move true \(j\)-values away from coordinate \(j\). Since all values are bounded in \([-1,1]\), replacing a \(\rho_{cj}\) fraction of the observed mass can change the coordinate mean by at most \(2\rho_{cj}\). This is a semantic-bias term, not a sampling term. More samples reduce variance around the wrong semantic mean but do not remove the bias.
+\end{proof}
+
+\subsection{Finite-Shot Propagation}
+
+\begin{theorem}[Finite-shot effect on prototype distances]
+Let \(\tilde{z}=z+\eta\) be an adapted readout with finite-shot noise and assume \(\phi\) is \(L_\phi\)-Lipschitz on the bounded readout domain. Then for any class prototype \(\mu_c\),
+\begin{equation}
+    \left|
+    \|\phi(\tilde{z})-\mu_c\|_2^2
+    -
+    \|\phi(z)-\mu_c\|_2^2
+    \right|
+    \le
+    2R L_\phi\|\eta\|_2 + L_\phi^2\|\eta\|_2^2,
+\end{equation}
+where \(R\) bounds \(\|\phi(z)-\mu_c\|_2\). In expectation, the leading term scales as \(O(S^{-1/2})\).
+\end{theorem}
+
+\begin{proof}
+Let \(a=\phi(z)-\mu_c\) and \(\Delta=\phi(\tilde z)-\phi(z)\). Then
+\begin{equation}
+    \|a+\Delta\|_2^2-\|a\|_2^2=2a^\top\Delta+\|\Delta\|_2^2.
+\end{equation}
+Taking absolute values and using Cauchy--Schwarz gives \(2\|a\|_2\|\Delta\|_2+\|\Delta\|_2^2\). Since \(\|a\|_2\le R\) and \(\|\Delta\|_2\le L_\phi\|\eta\|_2\), the displayed bound follows. For bounded \(\{-1,+1\}\) measurement outcomes, \(\E\|\eta\|_2=O(S^{-1/2})\) up to dimension and coverage constants, giving the leading shot term.
+\end{proof}
+
+\subsection{High-Order Separability}
+
+\begin{theorem}[Random quadratic sketches separate covariance differences]
+Let two classes have adapted value distributions with equal mean but covariance matrices \(\Sigma_1\neq\Sigma_2\). For a random projection vector \(p\), the HOP statistic satisfies
+\begin{equation}
+    \E[(p^\top v)^2\mid y=1]
+    -
+    \E[(p^\top v)^2\mid y=2]
+    =
+    p^\top(\Sigma_1-\Sigma_2)p.
+\end{equation}
+If \(\|\Sigma_1-\Sigma_2\|_F>0\), then with nonzero probability over \(p\), the projected quadratic statistic separates the classes. With \(h\) independent projections, the probability of missing all nonzero covariance directions decays exponentially in \(h\) under standard sub-Gaussian projection assumptions.
+\end{theorem}
+
+\begin{proof}
+Because the class means are equal, the difference in projected second moments is
+\begin{equation}
+    \E[(p^\top v)^2\mid y=1]-\E[(p^\top v)^2\mid y=2]
+    =p^\top(\Sigma_1-\Sigma_2)p.
+\end{equation}
+Let \(A=\Sigma_1-\Sigma_2\). For an isotropic Gaussian projection, \(\E[(p^\top A p)^2]=2\|A\|_F^2+(\mathrm{tr}\,A)^2\), which is positive when \(A\neq0\). Hence a single projection has positive probability of producing a nonzero high-order gap. For independent projections, the probability that all projected gaps fall below a fixed detectable threshold is the product of the individual miss probabilities and therefore decays exponentially in \(h\). This is the regime in which \hopmethod\ should help: covariance-dominated tasks, not low-order-separable image tasks.
+\end{proof}
+
+\subsection{Anchor-Informed CHOP Key Selection}
+
+CHOP uses public anchors only to choose a compact set of observable keys or quadratic pairs before private client aggregation begins. The selection rule is not claimed to be optimal. Its role is narrower: if the public anchor distribution overlaps source coordinates whose class-conditional variance or covariance is informative, then variance- or covariance-ranked keys are more likely than uniformly random keys to keep useful coordinates. This is a sufficient-condition argument, not a universal guarantee. The random-key ablations are therefore essential: they test whether the selected keys carry semantic signal beyond compression alone.
+
+\subsection{Communication-Error Trade-Off}
+
+\begin{theorem}[Budget allocation between low-order and high-order sketches]
+Suppose the sketch contribution to the classification margin error is bounded by
+\begin{equation}
+    \epsilon(d,h)\le a d^{-1/2}+c h^{-1/2},
+\end{equation}
+where \(a\) measures low-order signal difficulty and \(c\) measures high-order signal difficulty. Under a payload constraint \(bC(d+h+1)\le B\), the continuous relaxation allocates
+\begin{equation}
+    \frac{h}{d}=\left(\frac{c}{a}\right)^{2/3}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Let \(M=B/(bC)-1\), so \(d+h\le M\). At the optimum the budget is active. Minimize \(a d^{-1/2}+c h^{-1/2}\) subject to \(d+h=M\). The Lagrange conditions give
+\begin{equation}
+    a d^{-3/2}=c h^{-3/2},
+\end{equation}
+which rearranges to \(h/d=(c/a)^{2/3}\). The empirical communication curves follow this qualitative rule: low-order image tasks benefit more from low-order allocation, whereas covariance-dominated readout benefits from allocating payload to HOP.
+\end{proof}

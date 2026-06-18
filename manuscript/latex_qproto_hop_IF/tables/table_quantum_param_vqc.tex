@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\caption{Trainable PennyLane VQC parameter-aggregation baseline. This baseline uses a shared ansatz and canonical readout, so it tests standard quantum-parameter FL rather than heterogeneous-readout prototype aggregation.}
+\label{tab:quantum-param-vqc}
+\begin{tabular}{lrrrr}
+\toprule
+Method & Acc. & 95\% CI & Bal. acc. & Bytes \\
+\midrule
+VQC init & 0.243 & 0.085 & 0.235 & 128 \\
+VQC FedAvg & 0.535 & 0.084 & 0.514 & 128 \\
+VQC FedProx & 0.534 & 0.082 & 0.513 & 128 \\
+VQC centralized & 0.520 & 0.063 & 0.500 & 128 \\
+\bottomrule
+\end{tabular}
+\end{table}

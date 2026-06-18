@@ -1,0 +1,67 @@
+﻿{
+  "summaries": [
+    {
+      "method": "qproto_full",
+      "final_acc": 0.488625,
+      "final_balanced_acc": 0.4913698730335147,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.4360792332233265,
+      "bytes_per_client_round": 1432,
+      "elapsed_sec": 3.414677619934082
+    },
+    {
+      "method": "qproto_hop",
+      "final_acc": 0.4883749999999999,
+      "final_balanced_acc": 0.4915210770552756,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.4347378232025744,
+      "bytes_per_client_round": 1428,
+      "elapsed_sec": 3.366063356399536
+    },
+    {
+      "method": "qproto_proto",
+      "final_acc": 0.488,
+      "final_balanced_acc": 0.4911057405931702,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.4347378232025744,
+      "bytes_per_client_round": 1044,
+      "elapsed_sec": 2.8716719150543213
+    },
+    {
+      "method": "no_schema",
+      "final_acc": 0.42283333333333334,
+      "final_balanced_acc": 0.42293467840932764,
+      "distortion_proxy": 0.450730552615992,
+      "class_gap_proxy": 0.21964841269118784,
+      "bytes_per_client_round": 1044,
+      "elapsed_sec": 2.014497756958008
+    },
+    {
+      "method": "wrong_schema",
+      "final_acc": 0.25966666666666666,
+      "final_balanced_acc": 0.2623223979220146,
+      "distortion_proxy": 0.1327723657727658,
+      "class_gap_proxy": 0.3987820809474641,
+      "bytes_per_client_round": 1428,
+      "elapsed_sec": 3.0478105545043945
+    },
+    {
+      "method": "fedavg_forced",
+      "final_acc": 0.408875,
+      "final_balanced_acc": 0.41744435736659347,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 1040,
+      "elapsed_sec": 2.3333914279937744
+    },
+    {
+      "method": "fedprox_forced",
+      "final_acc": 0.40779166666666666,
+      "final_balanced_acc": 0.4166050613299678,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 1040,
+      "elapsed_sec": 2.2777485847473145
+    }
+  ]
+}

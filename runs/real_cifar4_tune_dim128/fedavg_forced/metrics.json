@@ -1,0 +1,9 @@
+﻿{
+  "method": "fedavg_forced",
+  "final_acc": 0.27640000000000003,
+  "final_balanced_acc": 0.27048779053527583,
+  "distortion_proxy": 0.0,
+  "class_gap_proxy": 0.0,
+  "bytes_per_client_round": 2064,
+  "elapsed_sec": 4.122168302536011
+}

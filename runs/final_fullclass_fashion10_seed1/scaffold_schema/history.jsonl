@@ -1,0 +1,5 @@
+﻿{"method": "scaffold_schema", "round": 1, "acc": 0.19087499999999996, "balanced_acc": 0.18897810826654926, "nll": 2.290912693909985}
+{"method": "scaffold_schema", "round": 15, "acc": 0.34984999999999994, "balanced_acc": 0.36557482913455563, "nll": 2.1471394597927422}
+{"method": "scaffold_schema", "round": 1, "acc": 0.19087499999999996, "balanced_acc": 0.18897810826654926, "nll": 2.290912693909985}
+{"method": "scaffold_schema", "round": 15, "acc": 0.34984999999999994, "balanced_acc": 0.36557482913455563, "nll": 2.1471394597927422}
+

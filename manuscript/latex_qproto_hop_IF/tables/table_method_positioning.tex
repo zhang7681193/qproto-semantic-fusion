@@ -1,0 +1,24 @@
+\begin{table*}[t]
+\centering
+\caption{Protocol requirements addressed by neighboring federated, missing-view, and quantum-readout approaches. Src. = semantic source identity; Order = arbitrary local coordinate order; Miss. = missing-zero distinction; Overlap = non-overlapping but schema-identifiable views; Shot = finite-shot/readout noise; HOP = high-order source interactions; Payload = communication-matched statistics. \(\checkmark\) means the requirement is explicit in the method class, \(\triangle\) means it is partially or indirectly supported, and \(\times\) means it is not addressed by the method class.}
+\label{tab:method-positioning}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\newcolumntype{Y}{>{\centering\arraybackslash}p{0.085\textwidth}}
+\begin{tabular}{p{0.24\textwidth}YYYYYYY}
+\toprule
+Approach & Src. & Order & Miss. & Overlap & Shot & HOP & Payload \\
+\midrule
+FedAvg, FedProx, FedOpt & \(\times\) & \(\times\) & \(\times\) & \(\times\) & \(\triangle\) & \(\times\) & \(\checkmark\) \\
+FedProto / prototype FL & \(\triangle\) & \(\times\) & \(\times\) & \(\triangle\) & \(\times\) & \(\times\) & \(\checkmark\) \\
+Feature-heterogeneous FL & \(\triangle\) & \(\triangle\) & \(\checkmark\) & \(\checkmark\) & \(\times\) & \(\triangle\) & \(\checkmark\) \\
+Missing-view imputation & \(\triangle\) & \(\triangle\) & \(\checkmark\) & \(\checkmark\) & \(\times\) & \(\triangle\) & \(\times\) \\
+Trainable missing-modality fusion & \(\triangle\) & \(\triangle\) & \(\checkmark\) & \(\checkmark\) & \(\times\) & \(\checkmark\) & \(\times\) \\
+Mask-aware or late decision fusion & \(\triangle\) & \(\triangle\) & \(\checkmark\) & \(\checkmark\) & \(\times\) & \(\triangle\) & \(\triangle\) \\
+Quantum parameter-FL & \(\times\) & \(\times\) & \(\times\) & \(\times\) & \(\triangle\) & \(\times\) & \(\checkmark\) \\
+Quantum kernels/shadows & \(\triangle\) & \(\triangle\) & \(\triangle\) & \(\triangle\) & \(\checkmark\) & \(\checkmark\) & \(\triangle\) \\
+\method{} & \(\checkmark\) & \(\checkmark\) & \(\checkmark\) & \(\checkmark\) & \(\checkmark\) & \(\triangle\) & \(\checkmark\) \\
+\hopmethod{}/CHOP & \(\checkmark\) & \(\checkmark\) & \(\checkmark\) & \(\checkmark\) & \(\checkmark\) & \(\checkmark\) & \(\checkmark\) \\
+\bottomrule
+\end{tabular}
+\end{table*}

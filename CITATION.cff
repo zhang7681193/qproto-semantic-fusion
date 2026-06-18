@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the manuscript and repository."
+title: "QProto: Protocol-Defined Semantic Fusion for Heterogeneous and Incomplete Source Coordinates"
+authors:
+  - family-names: Zhang
+    given-names: Leyuan
+  - family-names: Long
+    given-names: Yang
+version: 1.0.0
+date-released: 2026-06-18
+repository-code: "https://github.com/zhang7681193/qproto-semantic-fusion"
+license: MIT

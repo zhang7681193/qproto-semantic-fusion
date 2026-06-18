@@ -1,0 +1,32 @@
+\begin{table*}[t]
+\centering
+\caption{Real non-quantum missing-view fusion benchmark on the WDBC biomedical diagnosis dataset. Measurement families are treated as semantic views; each client observes a heterogeneous subset. Equal-byte rows use the same per-client per-round payload as CHOP.}
+\label{tab:if-wdbc-fusion}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.94}
+\begin{tabular}{lcccc}
+\toprule
+Method & Acc. & 95\% CI & Bytes & Runtime (s) \\
+\midrule
+Mask-only metadata & 0.509 & 0.015 & 252 & 0.003 \\
+Zero-fill prototype & 0.921 & 0.006 & 252 & 0.003 \\
+Mean-impute prototype & 0.922 & 0.006 & 252 & 0.004 \\
+Value+mask prototype & 0.780 & 0.045 & 492 & 0.003 \\
+Anchor PCA imputation & 0.882 & 0.014 & 252 & 0.565 \\
+Learned ridge imputation & 0.924 & 0.008 & 252 & 0.029 \\
+Anchor autoencoder imputation & 0.920 & 0.009 & 252 & 6.481 \\
+Mask-aware pooled MLP & 0.920 & 0.008 & 492 & 0.706 \\
+View-wise late fusion & 0.921 & 0.008 & 252 & 0.015 \\
+Shared-view prototype & 0.896 & 0.009 & 36 & 0.004 \\
+Shared-view RFF equal bytes & 0.896 & 0.006 & 396 & 0.010 \\
+Zero-fill RFF equal bytes & 0.911 & 0.008 & 396 & 0.014 \\
+Coverage prototype all & 0.922 & 0.006 & 492 & 0.017 \\
+Group-balanced CProto all & 0.921 & 0.008 & 492 & 0.050 \\
+CProto equal bytes & 0.922 & 0.006 & 396 & 0.011 \\
+Group-balanced CProto equal bytes & 0.921 & 0.008 & 396 & 0.043 \\
+Random-key HOP equal bytes & 0.905 & 0.011 & 396 & 0.017 \\
+CHOP equal bytes & 0.923 & 0.006 & 396 & 0.019 \\
+\bottomrule
+\end{tabular}
+\end{table*}

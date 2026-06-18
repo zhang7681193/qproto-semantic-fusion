@@ -1,0 +1,229 @@
+﻿{
+  "seeds": [
+    {
+      "seed": 0,
+      "dataset": {
+        "source": "data/mnist.npz",
+        "n_train": 300,
+        "n_test": 200,
+        "n_classes": 4,
+        "n_qubits": 4,
+        "layers": 1
+      },
+      "summaries": [
+        {
+          "method": "vqc_init",
+          "final_acc": 0.32,
+          "final_balanced_acc": 0.29848637499178227,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        },
+        {
+          "method": "vqc_fedavg",
+          "final_acc": 0.555,
+          "final_balanced_acc": 0.5212803234501348,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        },
+        {
+          "method": "vqc_fedprox",
+          "final_acc": 0.555,
+          "final_balanced_acc": 0.5212803234501348,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        },
+        {
+          "method": "vqc_centralized",
+          "final_acc": 0.56,
+          "final_balanced_acc": 0.5329786010124252,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "dataset": {
+        "source": "data/mnist.npz",
+        "n_train": 300,
+        "n_test": 200,
+        "n_classes": 4,
+        "n_qubits": 4,
+        "layers": 1
+      },
+      "summaries": [
+        {
+          "method": "vqc_init",
+          "final_acc": 0.135,
+          "final_balanced_acc": 0.12461413965973236,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        },
+        {
+          "method": "vqc_fedavg",
+          "final_acc": 0.425,
+          "final_balanced_acc": 0.4220522638455769,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        },
+        {
+          "method": "vqc_fedprox",
+          "final_acc": 0.425,
+          "final_balanced_acc": 0.4220522638455769,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        },
+        {
+          "method": "vqc_centralized",
+          "final_acc": 0.435,
+          "final_balanced_acc": 0.43203923735838623,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "dataset": {
+        "source": "data/mnist.npz",
+        "n_train": 300,
+        "n_test": 200,
+        "n_classes": 4,
+        "n_qubits": 4,
+        "layers": 1
+      },
+      "summaries": [
+        {
+          "method": "vqc_init",
+          "final_acc": 0.255,
+          "final_balanced_acc": 0.2579973427538834,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        },
+        {
+          "method": "vqc_fedavg",
+          "final_acc": 0.535,
+          "final_balanced_acc": 0.49105248832719767,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        },
+        {
+          "method": "vqc_fedprox",
+          "final_acc": 0.535,
+          "final_balanced_acc": 0.49105248832719767,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        },
+        {
+          "method": "vqc_centralized",
+          "final_acc": 0.52,
+          "final_balanced_acc": 0.4749602956361677,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "dataset": {
+        "source": "data\\mnist.npz",
+        "n_train": 300,
+        "n_test": 200,
+        "n_classes": 4,
+        "n_qubits": 4,
+        "layers": 1
+      },
+      "summaries": [
+        {
+          "method": "vqc_init",
+          "final_acc": 0.275,
+          "final_balanced_acc": 0.26669096257292835,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        },
+        {
+          "method": "vqc_fedavg",
+          "final_acc": 0.55,
+          "final_balanced_acc": 0.5383182194919799,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        },
+        {
+          "method": "vqc_fedprox",
+          "final_acc": 0.55,
+          "final_balanced_acc": 0.5383182194919799,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        },
+        {
+          "method": "vqc_centralized",
+          "final_acc": 0.53,
+          "final_balanced_acc": 0.5198729137210928,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "dataset": {
+        "source": "data\\mnist.npz",
+        "n_train": 300,
+        "n_test": 200,
+        "n_classes": 4,
+        "n_qubits": 4,
+        "layers": 1
+      },
+      "summaries": [
+        {
+          "method": "vqc_init",
+          "final_acc": 0.23,
+          "final_balanced_acc": 0.22946539574583671,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        },
+        {
+          "method": "vqc_fedavg",
+          "final_acc": 0.61,
+          "final_balanced_acc": 0.5995672182870516,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        },
+        {
+          "method": "vqc_fedprox",
+          "final_acc": 0.605,
+          "final_balanced_acc": 0.5937532647986795,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        },
+        {
+          "method": "vqc_centralized",
+          "final_acc": 0.555,
+          "final_balanced_acc": 0.5396627332372177,
+          "bytes_per_client_round": 128,
+          "total_upload_bytes": 6912.0,
+          "param_scalars": 16
+        }
+      ]
+    }
+  ]
+}

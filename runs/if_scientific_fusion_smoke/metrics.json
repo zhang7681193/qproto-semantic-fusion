@@ -1,0 +1,103 @@
+﻿{
+  "summaries": [
+    {
+      "method": "schema_zero_fill",
+      "final_acc": 0.6537499999999999,
+      "final_balanced_acc": 0.6540493076578069,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.26675697297638606,
+      "bytes_per_client_round": 1944,
+      "elapsed_sec": 1.7610368728637695
+    },
+    {
+      "method": "schema_mask_only",
+      "final_acc": 0.19835,
+      "final_balanced_acc": 0.20000000000000004,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.26421332293803834,
+      "bytes_per_client_round": 1944,
+      "elapsed_sec": 1.8205320835113525
+    },
+    {
+      "method": "no_schema",
+      "final_acc": 0.30545,
+      "final_balanced_acc": 0.3063373366402964,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.12384807467008996,
+      "bytes_per_client_round": 1944,
+      "elapsed_sec": 0.7520346641540527
+    },
+    {
+      "method": "forced_canonical",
+      "final_acc": 0.2979,
+      "final_balanced_acc": 0.2988971008908372,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.1201683153626052,
+      "bytes_per_client_round": 1944,
+      "elapsed_sec": 0.9815187454223633
+    },
+    {
+      "method": "shared_observable",
+      "final_acc": 0.64355,
+      "final_balanced_acc": 0.6448401462451281,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.2280485173109704,
+      "bytes_per_client_round": 1944,
+      "elapsed_sec": 0.8900604248046875
+    },
+    {
+      "method": "qproto_masked",
+      "final_acc": 0.38025,
+      "final_balanced_acc": 0.38461992354673036,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.7322025450883274,
+      "bytes_per_client_round": 3864,
+      "elapsed_sec": 1.0789320468902588
+    },
+    {
+      "method": "qproto_masked_hop",
+      "final_acc": 0.68275,
+      "final_balanced_acc": 0.6828768046425296,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.7322025450883274,
+      "bytes_per_client_round": 5784,
+      "elapsed_sec": 2.761732816696167
+    },
+    {
+      "method": "qproto_cproto",
+      "final_acc": 0.38055,
+      "final_balanced_acc": 0.38580358521828706,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.5229686472310427,
+      "bytes_per_client_round": 1944,
+      "elapsed_sec": 2.208422899246216
+    },
+    {
+      "method": "qproto_chop",
+      "final_acc": 0.7306,
+      "final_balanced_acc": 0.7333259324119782,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.5229686472310427,
+      "bytes_per_client_round": 3864,
+      "elapsed_sec": 2.6441192626953125
+    },
+    {
+      "method": "fedproto_schema",
+      "final_acc": 0.2834,
+      "final_balanced_acc": 0.28406185148905483,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.22749873273250215,
+      "bytes_per_client_round": 1944,
+      "elapsed_sec": 1.9341144561767578
+    },
+    {
+      "method": "fedadam_schema",
+      "final_acc": 0.32894999999999996,
+      "final_balanced_acc": 0.3299345642064792,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 1940,
+      "elapsed_sec": 2.416456937789917
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+﻿variant,total_dim,method,n,bytes_mean,acc_mean,acc_std,balanced_acc_mean
+proto,12,qproto_proto,3,212.0,0.4397,0.0472,0.4391
+hop,12,qproto_hop,3,212.0,0.5174,0.0769,0.5169
+proto,24,qproto_proto,3,404.0,0.5277,0.0301,0.5266
+hop,24,qproto_hop,3,404.0,0.6717,0.0471,0.6705
+proto,48,qproto_proto,3,788.0,0.6202,0.0294,0.6211
+hop,48,qproto_hop,3,788.0,0.7554,0.0306,0.7558
+proto,96,qproto_proto,3,1556.0,0.7209,0.0140,0.7207
+hop,96,qproto_hop,3,1556.0,0.8056,0.0438,0.8053
+proto,144,qproto_proto,3,2324.0,0.7583,0.0231,0.7579
+hop,144,qproto_hop,3,2324.0,0.8075,0.0118,0.8041
+
+

@@ -1,0 +1,31 @@
+\begin{table*}[t]
+\centering
+\caption{Real industrial multi-source missing-view fusion benchmark on UCI Hydraulic Systems condition monitoring (accumulator target). Each sensor time series is summarized into cycle-level readout statistics, and each client observes a heterogeneous sensor subset. Equal-byte rows use the same per-client per-round payload as CHOP.}
+\label{tab:if-hydraulic-fusion}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.94}
+\begin{tabular}{lcccc}
+\toprule
+Method & Acc. & 95\% CI & Bytes & Runtime (s) \\
+\midrule
+Mask-only metadata & 0.250 & 0.000 & 2740 & 0.068 \\
+Zero-fill prototype & 0.439 & 0.000 & 2740 & 0.061 \\
+Mean-impute prototype & 0.440 & 0.000 & 2740 & 0.068 \\
+Value+mask prototype & 0.277 & 0.000 & 5460 & 0.127 \\
+Anchor PCA imputation & 0.445 & 0.000 & 2740 & 3.812 \\
+Learned ridge imputation & 0.437 & 0.000 & 2740 & 0.307 \\
+View-wise late fusion & 0.441 & 0.000 & 2740 & 0.011 \\
+Shared-view prototype & 0.440 & 0.000 & 340 & 0.004 \\
+Shared-view RFF equal bytes & 0.440 & 0.000 & 4628 & 0.156 \\
+Zero-fill RFF equal bytes & 0.483 & 0.000 & 4628 & 0.209 \\
+Coverage prototype all & 0.437 & 0.000 & 5460 & 0.135 \\
+Group-balanced CProto all & 0.441 & 0.000 & 5460 & 0.121 \\
+CProto equal bytes & 0.408 & 0.000 & 4628 & 0.076 \\
+Group-balanced CProto equal bytes & 0.406 & 0.000 & 4628 & 0.069 \\
+Random-key HOP equal bytes & 0.433 & 0.000 & 4628 & 0.148 \\
+CHOP equal bytes & 0.411 & 0.000 & 4628 & 0.150 \\
+CHOP-Diag equal bytes & 0.414 & 0.000 & 4628 & 0.133 \\
+\bottomrule
+\end{tabular}
+\end{table*}

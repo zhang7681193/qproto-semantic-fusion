@@ -1,0 +1,67 @@
+﻿{
+  "summaries": [
+    {
+      "method": "qproto_hop",
+      "final_acc": 0.334125,
+      "final_balanced_acc": 0.34012003344616376,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.29802527153969355,
+      "bytes_per_client_round": 2324,
+      "elapsed_sec": 0.42845726013183594
+    },
+    {
+      "method": "qproto_proto",
+      "final_acc": 0.33299999999999996,
+      "final_balanced_acc": 0.33905022945623975,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.29802527153969355,
+      "bytes_per_client_round": 1556,
+      "elapsed_sec": 0.387770414352417
+    },
+    {
+      "method": "shared_observable",
+      "final_acc": 0.360875,
+      "final_balanced_acc": 0.3510095758269234,
+      "distortion_proxy": 1.2062644946669674,
+      "class_gap_proxy": 0.06842445390396891,
+      "bytes_per_client_round": 1556,
+      "elapsed_sec": 0.30872464179992676
+    },
+    {
+      "method": "no_schema",
+      "final_acc": 0.385625,
+      "final_balanced_acc": 0.37671447903078287,
+      "distortion_proxy": 0.30158271247900525,
+      "class_gap_proxy": 0.17568651219271636,
+      "bytes_per_client_round": 1556,
+      "elapsed_sec": 0.21649670600891113
+    },
+    {
+      "method": "wrong_schema",
+      "final_acc": 0.270125,
+      "final_balanced_acc": 0.27487951438869146,
+      "distortion_proxy": 0.10416818939630795,
+      "class_gap_proxy": 0.2798857270042245,
+      "bytes_per_client_round": 2324,
+      "elapsed_sec": 0.385056734085083
+    },
+    {
+      "method": "forced_canonical",
+      "final_acc": 0.37850000000000006,
+      "final_balanced_acc": 0.37102231142136355,
+      "distortion_proxy": 0.32001830775768897,
+      "class_gap_proxy": 0.15724210762439,
+      "bytes_per_client_round": 1556,
+      "elapsed_sec": 0.31392598152160645
+    },
+    {
+      "method": "fedavg_forced",
+      "final_acc": 0.377625,
+      "final_balanced_acc": 0.3492354894816547,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 1552,
+      "elapsed_sec": 0.2954277992248535
+    }
+  ]
+}

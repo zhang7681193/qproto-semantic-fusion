@@ -1,0 +1,67 @@
+﻿{
+  "summaries": [
+    {
+      "method": "scaffold_schema",
+      "final_acc": 0.37604166666666666,
+      "final_balanced_acc": 0.3695070251937984,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 1056,
+      "elapsed_sec": 0.055126190185546875
+    },
+    {
+      "method": "feddyn_schema",
+      "final_acc": 0.4614583333333333,
+      "final_balanced_acc": 0.41963035147991545,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 528,
+      "elapsed_sec": 0.06061577796936035
+    },
+    {
+      "method": "fedadam_schema",
+      "final_acc": 0.434375,
+      "final_balanced_acc": 0.41694580250176183,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 528,
+      "elapsed_sec": 0.057683467864990234
+    },
+    {
+      "method": "fedproto_schema",
+      "final_acc": 0.4552083333333333,
+      "final_balanced_acc": 0.42581428382663844,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.4159741680001357,
+      "bytes_per_client_round": 532,
+      "elapsed_sec": 0.032109975814819336
+    },
+    {
+      "method": "qproto_cproto",
+      "final_acc": 0.5833333333333334,
+      "final_balanced_acc": 0.538729959478506,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 1.075913532142313,
+      "bytes_per_client_round": 276,
+      "elapsed_sec": 0.03716707229614258
+    },
+    {
+      "method": "qproto_chop",
+      "final_acc": 0.5895833333333333,
+      "final_balanced_acc": 0.5444613284002819,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 1.075913532142313,
+      "bytes_per_client_round": 532,
+      "elapsed_sec": 0.03972506523132324
+    },
+    {
+      "method": "qproto_masked_hop",
+      "final_acc": 0.6187499999999999,
+      "final_balanced_acc": 0.5745386275546159,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 1.3713914574591228,
+      "bytes_per_client_round": 660,
+      "elapsed_sec": 0.03563523292541504
+    }
+  ]
+}

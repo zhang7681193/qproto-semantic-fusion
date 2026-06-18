@@ -1,0 +1,17 @@
+﻿comparison,group,n,delta_acc_mean,delta_acc_ci95,wins
+masked-HOP minus masked,PennyLane high-order,3,0.12770833333333334,0.04210835701214367,3
+masked-HOP minus old-HOP,PennyLane high-order,3,0.22962500000000005,0.03502938897941033,3
+CHOP minus CProto,PennyLane high-order K=8,3,0.24958333333333338,0.07046595888919438,3
+coverage-key CHOP minus random-key CHOP,PennyLane high-order K=8,5,0.22817500000000004,0.06642613305198489,5
+variance-key CHOP minus random-key CHOP,MNIST-10 K=96,3,0.08861666666666668,0.01596384648145953,3
+coverage-key CHOP minus random-key CHOP,CIFAR-10 K=96,3,0.061388888888888916,0.043955985593308176,3
+CHOP minus schema-FedProto,MNIST-10 strong-baseline,3,0.3333083333333334,0.026899080410638185,3
+CHOP minus schema-FedProto,CIFAR-10 strong-baseline,3,0.17847222222222225,0.05793371194203846,3
+CHOP minus schema-FedProto,Qiskit Aer strong-baseline,3,0.15138888888888888,0.22682246154943303,3
+CHOP minus schema-FedProto,PennyLane high-order strong-baseline,3,0.31716666666666665,0.031231249721693957,3
+CHOP minus FedAdam,PennyLane high-order strong-baseline,3,0.24345833333333333,0.0689720850121525,3
+CHOP minus schema-FedAdam,MNIST-10 schema-head,3,0.2906333333333334,0.03085217325323734,3
+CHOP minus schema-FedAdam,CIFAR-10 schema-head,3,0.16897222222222222,0.053993289089572176,3
+CHOP minus schema-FedAdam,PennyLane high-order schema-head,3,0.28558333333333336,0.04240958579893393,3
+
+

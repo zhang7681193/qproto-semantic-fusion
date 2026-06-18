@@ -1,0 +1,26 @@
+\begin{table*}[t]
+\centering
+\caption{High-order readout experiments. The PennyLane benchmark uses circuit-generated readouts with class means equalized, so the dominant signal is second-order.}
+\label{tab:masked-hop-highorder}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+Setting & Method & Acc. & 95\% CI & Bytes \\
+\midrule
+PennyLane high-order & \method{}-Masked-HOP & 0.550 & 0.009 & 3476 \\
+PennyLane high-order & CHOP, \(K=24\) & 0.602 & 0.061 & 2324 \\
+PennyLane high-order & \method{}-Masked & 0.422 & 0.044 & 1940 \\
+PennyLane high-order & CProto, \(K=24\) & 0.403 & 0.061 & 788 \\
+PennyLane high-order & shared-observable & 0.446 & 0.053 & 1556 \\
+PennyLane high-order & old \hopmethod & 0.320 & 0.028 & 3092 \\
+PennyLane high-order & no-schema & 0.338 & 0.057 & 1556 \\
+\midrule
+Synthetic covariance & \method{}-Masked-HOP & 0.808 & 0.083 & 4116 \\
+Synthetic covariance & \method{}-Masked & 0.467 & 0.085 & 2068 \\
+Synthetic covariance & old \hopmethod & 0.795 & 0.059 & 2260 \\
+Synthetic covariance & low-order prototype & 0.449 & 0.115 & 212 \\
+Synthetic covariance & wrong-schema HOP & 0.445 & 0.029 & 2260 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

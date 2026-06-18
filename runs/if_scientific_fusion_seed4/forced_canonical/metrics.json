@@ -1,0 +1,9 @@
+﻿{
+  "method": "forced_canonical",
+  "final_acc": 0.28405,
+  "final_balanced_acc": 0.2830928996861754,
+  "distortion_proxy": 0.0,
+  "class_gap_proxy": 0.13405398354183948,
+  "bytes_per_client_round": 1944,
+  "elapsed_sec": 1.8702902793884277
+}

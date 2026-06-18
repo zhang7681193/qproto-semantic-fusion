@@ -1,0 +1,29 @@
+\begin{table*}[t]
+\centering
+\caption{CHOP key-selection controls. Anchor-informed key policies are compared to random keys at the same \(K\).}
+\label{tab:chop-key-policy}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llccc}
+\toprule
+Setting & Key policy & Method & Acc. & Bytes \\
+\midrule
+PennyLane high-order, \(K=8\) & coverage & CHOP & 0.659 & 1812 \\
+PennyLane high-order, \(K=8\) & variance & CHOP & 0.624 & 1812 \\
+PennyLane high-order, \(K=8\) & random & CHOP & 0.431 & 1812 \\
+PennyLane high-order, \(K=8\) & coverage & CProto & 0.394 & 276 \\
+\midrule
+MNIST-10, \(K=96\) & variance & CHOP & 0.751 & 11564 \\
+MNIST-10, \(K=96\) & coverage & CHOP & 0.749 & 11564 \\
+MNIST-10, \(K=96\) & random & CHOP & 0.662 & 11564 \\
+\midrule
+CIFAR-10, \(K=96\) & coverage & CHOP & 0.452 & 11564 \\
+CIFAR-10, \(K=96\) & variance & CHOP & 0.451 & 11564 \\
+CIFAR-10, \(K=96\) & random & CHOP & 0.391 & 11564 \\
+\midrule
+Qiskit Aer, \(K=10\) & variance & CHOP & 0.594 & 596 \\
+Qiskit Aer, \(K=10\) & coverage & CHOP & 0.590 & 596 \\
+Qiskit Aer, \(K=10\) & random & CHOP & 0.582 & 596 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

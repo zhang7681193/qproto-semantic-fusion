@@ -1,0 +1,3 @@
+﻿{"method": "fedproto_schema", "round": 1, "acc": 0.1665, "balanced_acc": 0.16840769324528854, "class_gap_proxy": 0.34990626092378607, "distortion_proxy": 0.0, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 0.0}
+{"method": "fedproto_schema", "round": 12, "acc": 0.1692, "balanced_acc": 0.1695689191911988, "class_gap_proxy": 0.32653084903455953, "distortion_proxy": 0.0, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 0.506810223999206}
+

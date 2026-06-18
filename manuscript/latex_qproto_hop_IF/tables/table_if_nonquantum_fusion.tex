@@ -1,0 +1,35 @@
+\begin{table*}[t]
+\centering
+\caption{Real non-quantum missing-view fusion benchmark on UCI HAR smartphone-sensor features. Feature-name groups are treated as semantic sensor views; each client observes a heterogeneous subset. Equal-byte rows use the same per-client per-round payload as CHOP.}
+\label{tab:if-nonquantum-fusion}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.94}
+\begin{tabular}{lcccc}
+\toprule
+Method & Acc. & 95\% CI & Bytes & Runtime (s) \\
+\midrule
+Mask-only metadata & 0.163 & 0.005 & 13492 & 1.063 \\
+Zero-fill prototype & 0.275 & 0.035 & 13492 & 1.057 \\
+Mean-impute prototype & 0.569 & 0.032 & 13492 & 1.497 \\
+Value+mask prototype & 0.208 & 0.036 & 26956 & 2.050 \\
+Anchor PCA imputation & 0.779 & 0.012 & 13492 & 26.368 \\
+Learned ridge imputation & 0.770 & 0.016 & 13492 & 3.486 \\
+Anchor autoencoder imputation & 0.753 & 0.005 & 13492 & 14.623 \\
+Mask-aware pooled MLP & 0.757 & 0.022 & 26956 & 4.778 \\
+HeMIS modality-dropout fusion & 0.821 & 0.023 & 26956 & 32.261 \\
+View-wise late fusion & 0.717 & 0.017 & 13492 & 0.294 \\
+Shared-view prototype & 0.391 & 0.021 & 52 & 0.013 \\
+Shared-view RFF equal bytes & 0.391 & 0.021 & 7708 & 0.647 \\
+Zero-fill RFF equal bytes & 0.344 & 0.038 & 7708 & 1.204 \\
+Coverage prototype all & 0.781 & 0.003 & 26956 & 2.136 \\
+Group-balanced CProto all & 0.717 & 0.017 & 26956 & 2.407 \\
+CProto equal bytes & 0.753 & 0.009 & 7708 & 0.545 \\
+Group-balanced CProto equal bytes & 0.716 & 0.016 & 7708 & 0.571 \\
+Random-key CProto equal bytes & 0.632 & 0.033 & 7708 & 0.472 \\
+Random-key HOP equal bytes & 0.616 & 0.040 & 7708 & 0.702 \\
+CHOP equal bytes & 0.632 & 0.027 & 7708 & 0.675 \\
+Adaptive CHOP equal bytes & 0.752 & 0.011 & 7708 & 0.719 \\
+\bottomrule
+\end{tabular}
+\end{table*}

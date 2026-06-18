@@ -1,0 +1,7 @@
+﻿{"method": "shared_observable", "round": 1, "acc": 0.677525, "balanced_acc": 0.674307827370038, "class_gap_proxy": 0.3313685013701927, "distortion_proxy": 0.8704032006019683, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 0.0}
+{"method": "shared_observable", "round": 15, "acc": 0.6797500000000001, "balanced_acc": 0.6766323551200237, "class_gap_proxy": 0.3263288244940354, "distortion_proxy": 0.864805745061911, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 0.03408040793792146}
+{"method": "shared_observable", "round": 1, "acc": 0.677525, "balanced_acc": 0.674307827370038, "class_gap_proxy": 0.3313685013701927, "distortion_proxy": 0.8704032006019683, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 0.0}
+{"method": "shared_observable", "round": 15, "acc": 0.6797500000000001, "balanced_acc": 0.6766323551200237, "class_gap_proxy": 0.3263288244940354, "distortion_proxy": 0.864805745061911, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 0.03408040793792146}
+{"method": "shared_observable", "round": 1, "acc": 0.677525, "balanced_acc": 0.674307827370038, "class_gap_proxy": 0.3313685013701927, "distortion_proxy": 0.0, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 0.0}
+{"method": "shared_observable", "round": 15, "acc": 0.6797500000000001, "balanced_acc": 0.6766323551200237, "class_gap_proxy": 0.3263288244940354, "distortion_proxy": 0.0, "active_classes": 10, "mean_shrink": 1.0, "drift_proxy": 0.03408040793792146}
+

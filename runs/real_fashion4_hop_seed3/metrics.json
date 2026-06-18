@@ -1,0 +1,13 @@
+﻿{
+  "summaries": [
+    {
+      "method": "qproto_hop",
+      "final_acc": 0.7372500000000002,
+      "final_balanced_acc": 0.7374102437391274,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.3681117473877053,
+      "bytes_per_client_round": 4628,
+      "elapsed_sec": 15.958392858505249
+    }
+  ]
+}

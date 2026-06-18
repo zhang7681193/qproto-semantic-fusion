@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\caption{Adaptive CHOP ablation under matched communication. All method columns use the same per-client payload within each dataset. The table separates low-order coverage fusion, random high-order sketches, protocol-selected CHOP, and the train-calibrated mixture/fallback gate.}
+\label{tab:adaptive-chop-ablation}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccc}
+\toprule
+Dataset & Zero-fill RFF & CProto & Random HOP & CHOP & Adaptive CHOP \\
+\midrule
+UCI HAR & 0.344 & 0.753 & 0.616 & 0.632 & 0.752 \\
+MFeat & 0.766 & 0.868 & 0.883 & 0.722 & 0.866 \\
+PAMAP2 & 0.609 & 0.725 & 0.702 & 0.495 & 0.725 \\
+MHEALTH & 0.774 & 0.860 & 0.798 & 0.865 & 0.878 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

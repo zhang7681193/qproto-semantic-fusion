@@ -1,0 +1,9 @@
+﻿{
+  "method": "shared_observable",
+  "final_acc": 0.694,
+  "final_balanced_acc": 0.6895589095322348,
+  "distortion_proxy": 0.8858397459747597,
+  "class_gap_proxy": 0.32638658155885497,
+  "bytes_per_client_round": 7724,
+  "elapsed_sec": 15.190700769424438
+}

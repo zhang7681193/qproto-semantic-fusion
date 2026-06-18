@@ -1,0 +1,34 @@
+\begin{table*}[t]
+\centering
+\caption{Real gas-sensor array missing-view fusion benchmark under a stratified random split. The 16 chemical sensors are treated as semantic sources; each client observes a heterogeneous sensor subset. Equal-byte rows use the same per-client per-round payload as CHOP.}
+\label{tab:if-gas-drift-random-fusion}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.94}
+\begin{tabular}{lcccc}
+\toprule
+Method & Acc. & 95\% CI & Bytes & Runtime (s) \\
+\midrule
+Mask-only metadata & 0.167 & 0.007 & 3100 & 0.535 \\
+Zero-fill prototype & 0.595 & 0.016 & 3100 & 0.542 \\
+Mean-impute prototype & 0.596 & 0.016 & 3100 & 0.717 \\
+Value+mask prototype & 0.320 & 0.029 & 6172 & 1.029 \\
+Anchor PCA imputation & 0.569 & 0.007 & 3100 & 13.177 \\
+Learned ridge imputation & 0.559 & 0.007 & 3100 & 1.116 \\
+Anchor autoencoder imputation & 0.560 & 0.004 & 3100 & 7.475 \\
+Mask-aware pooled MLP & 0.898 & 0.014 & 6172 & 3.675 \\
+View-wise late fusion & 0.594 & 0.005 & 3100 & 0.261 \\
+Shared-view prototype & 0.448 & 0.004 & 412 & 0.064 \\
+Shared-view RFF equal bytes & 0.448 & 0.009 & 6940 & 1.576 \\
+Zero-fill RFF equal bytes & 0.601 & 0.022 & 6940 & 1.844 \\
+Coverage prototype all & 0.603 & 0.007 & 6172 & 1.187 \\
+Group-balanced CProto all & 0.594 & 0.005 & 6172 & 1.576 \\
+CProto equal bytes & 0.603 & 0.007 & 6940 & 1.154 \\
+Group-balanced CProto equal bytes & 0.594 & 0.005 & 6940 & 1.563 \\
+Random-key CProto equal bytes & 0.598 & 0.012 & 6940 & 0.903 \\
+Random-key HOP equal bytes & 0.598 & 0.012 & 6940 & 1.712 \\
+CHOP equal bytes & 0.592 & 0.012 & 6940 & 1.720 \\
+Adaptive CHOP equal bytes & 0.604 & 0.007 & 6940 & 1.249 \\
+\bottomrule
+\end{tabular}
+\end{table*}

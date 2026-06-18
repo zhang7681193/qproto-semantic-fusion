@@ -1,0 +1,3 @@
+﻿{"method": "scaffold_schema", "round": 1, "acc": 0.17723333333333333, "balanced_acc": 0.1773291050705394, "nll": 2.299834690214868}
+{"method": "scaffold_schema", "round": 15, "acc": 0.15780000000000002, "balanced_acc": 0.1567258028204946, "nll": 2.260668618853935}
+

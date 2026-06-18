@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Qiskit Aer robustness sweep with count-derived readout expectations. Values are mean accuracy over five seeds. The QProto runner adds no extra synthetic readout noise here; finite shots and noise are already present in the Aer-generated measurement counts.}
+\label{tab:qiskit-noise-sweep}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccccc}
+\toprule
+Setting & Wrong & No schema & FedAdam & FedProto & Shared & CProto & CHOP & Masked-HOP \\
+\midrule
+Clean, depth 1, 1024 shots & 0.320 & 0.360 & 0.438 & 0.454 & 0.518 & 0.568 & 0.572 & \textbf{0.580} \\
+Low shot, 128 shots & 0.309 & 0.340 & 0.398 & 0.410 & 0.466 & 0.546 & \textbf{0.550} & 0.547 \\
+High readout error & 0.314 & 0.356 & 0.425 & 0.437 & 0.496 & 0.573 & \textbf{0.583} & 0.572 \\
+High depolarizing noise & 0.312 & 0.352 & 0.431 & 0.444 & 0.506 & 0.585 & \textbf{0.593} & 0.593 \\
+Depth 2 & 0.323 & 0.370 & 0.462 & 0.482 & 0.538 & 0.584 & 0.589 & \textbf{0.612} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

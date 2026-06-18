@@ -1,0 +1,45 @@
+﻿{
+  "seed": 0,
+  "dataset": {
+    "source": "data/mnist.npz",
+    "n_train": 300,
+    "n_test": 200,
+    "n_classes": 4,
+    "n_qubits": 4,
+    "layers": 1
+  },
+  "summaries": [
+    {
+      "method": "vqc_init",
+      "final_acc": 0.32,
+      "final_balanced_acc": 0.29848637499178227,
+      "bytes_per_client_round": 128,
+      "total_upload_bytes": 6912.0,
+      "param_scalars": 16
+    },
+    {
+      "method": "vqc_fedavg",
+      "final_acc": 0.555,
+      "final_balanced_acc": 0.5212803234501348,
+      "bytes_per_client_round": 128,
+      "total_upload_bytes": 6912.0,
+      "param_scalars": 16
+    },
+    {
+      "method": "vqc_fedprox",
+      "final_acc": 0.555,
+      "final_balanced_acc": 0.5212803234501348,
+      "bytes_per_client_round": 128,
+      "total_upload_bytes": 6912.0,
+      "param_scalars": 16
+    },
+    {
+      "method": "vqc_centralized",
+      "final_acc": 0.56,
+      "final_balanced_acc": 0.5329786010124252,
+      "bytes_per_client_round": 128,
+      "total_upload_bytes": 6912.0,
+      "param_scalars": 16
+    }
+  ]
+}

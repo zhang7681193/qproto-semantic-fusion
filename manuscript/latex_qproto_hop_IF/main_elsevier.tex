@@ -1,0 +1,88 @@
+\documentclass[preprint]{elsarticle}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{array}
+\usepackage{amsthm}
+\usepackage{etoolbox}
+\usepackage{placeins}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds,calc}
+
+\graphicspath{{figures/}}
+
+\newcommand{\method}{QProto}
+\newcommand{\hopmethod}{QProto-HOP}
+\newcommand{\schema}{\mathsf{S}}
+\newcommand{\adapter}{A_{\schema}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{assumption}{Assumption}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\setlength{\bibsep}{0pt}
+\newcommand{\qtabfont}{\scriptsize}
+\AtBeginEnvironment{tabular}{\qtabfont}
+\AtBeginEnvironment{tabular*}{\qtabfont}
+\sloppy
+
+% Suppress the default elsarticle preprint footer in the review PDF.
+\makeatletter
+\def\ps@pprintTitle{%
+  \let\@oddhead\@empty
+  \let\@evenhead\@empty
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty}
+\makeatother
+
+\journal{Information Fusion}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Protocol-Defined Semantic Fusion for Heterogeneous and Incomplete Source Coordinates}
+
+\author[inst1]{Leyuan Zhang}
+\ead{leyuan.zhang@durham.ac.uk}
+\author[inst1]{Yang Long\corref{cor1}}
+\ead{yang.long@durham.ac.uk}
+\cortext[cor1]{Corresponding author.}
+\address[inst1]{Department of Computer Science, Durham University, Durham, United Kingdom}
+
+\begin{abstract}
+Distributed fusion often treats coordinates as if their meanings were already shared. In heterogeneous and incomplete source settings this assumption can fail: clients may expose different coordinates, view subsets, local orders, noise levels, or measurement budgets. Federated quantum readout is a concrete stress case because a coordinate is a measurement choice, but the same issue appears in sensor and multi-view fusion. We study this as a semantic comparability problem rather than another averaging rule. \method\ binds local coordinates to a public schema, maps observations into a value-mask domain, and aggregates class-wise statistics with coverage counts. The default low-order backbone separates missing measurements from measured near-zero values and normalizes source groups with unequal dimensionality. For covariance- or interaction-dominated tasks, \hopmethod/CHOP adds compressed mask-aware cross-source outer-product statistics, with a training-only gate that falls back to CProto when high-order evidence is not useful. We evaluate quantum-readout image tasks, real missing-view benchmarks, Qiskit Aer/PennyLane readouts, and covariance-sensing tasks under matched schemas, payloads, or feature access. CProto reaches 0.753 on UCI HAR, versus 0.344/0.391 for equal-byte zero-fill/shared-view RFF. Group-balanced CProto reaches 0.876 on Multiple Features. Adaptive CHOP reaches 0.878 on subject-held-out MHEALTH, and compact CHOP reaches 0.977 on Hydraulic Systems. Full-dimensional HeMIS or MLP models can be stronger, and HOP helps mainly when source interactions matter. Overall, source-coordinate fusion requires named coordinates, not anonymous positions.
+\end{abstract}
+
+\begin{keyword}
+Source-coordinate fusion \sep schema-bound prototypes \sep incomplete views \sep heterogeneous federated learning \sep quantum readout \sep coverage-aware aggregation \sep high-order sketches
+\end{keyword}
+
+\end{frontmatter}
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_problem}
+\input{sections/04_method}
+\input{sections/05_analysis}
+\input{sections/06_experiments}
+\input{sections/07_discussion}
+\input{sections/08_conclusion}
+
+\FloatBarrier
+\bibliographystyle{elsarticle-num}
+\bibliography{references}
+
+\end{document}
+
+

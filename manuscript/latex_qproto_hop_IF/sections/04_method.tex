@@ -1,0 +1,211 @@
+\section{The \method\ Protocol}
+
+\subsection{Learning Objective and Estimator View}
+
+The learning problem can be written as nearest-prototype classification in a protocol-defined comparison space. Let \(A_{\schema_i}\) map client \(i\)'s local readout into the public value-mask domain, let \(g(\cdot)\) denote either the low-order sketch \(\phi\) or the concatenated low-/high-order sketch \((\phi,\sqrt{\lambda}\psi)\), and let
+\begin{equation}
+    \theta_c^\star = \E[g(A_{\schema}(r(x)))\mid y=c]
+\end{equation}
+be the population class statistic in the common semantic domain. The server estimates \(\theta_c^\star\) from client-local empirical statistics without observing raw examples:
+\begin{equation}
+    \hat{\theta}_c =
+    \sum_i
+    \frac{|\cD_{i,c}|}{\sum_\ell |\cD_{\ell,c}|}
+    \hat{\theta}_{i,c}.
+\end{equation}
+Prediction minimizes the plug-in risk induced by prototype distances,
+\begin{equation}
+    \hat{y}(x)=
+    \arg\min_c
+    \|g(A_{\schema}(r(x)))-\hat{\theta}_c\|_2^2.
+\end{equation}
+This viewpoint matters because schema binding is part of the statistical model. Without \(A_{\schema_i}\), the client estimates are not samples from a shared random variable. It also separates the roles of the modules: low-order \(\phi\) estimates class mean embeddings, coverage-aware prototypes estimate observable-wise conditional means with missingness counts, and HOP estimates projected second-order moments. Unless stated otherwise, CProto is the default compact backbone; CHOP is a conditional branch for interaction-heavy regimes, not a replacement for low-order coverage fusion.
+
+\subsection{Protocol Summary}
+
+The protocol used in the experiments is:
+\begin{enumerate}
+    \item Define a public observable dictionary \(\cO\), optional public anchors, sketch dimensions, and communication budget.
+    \item For each client \(i\), bind every local measurement coordinate to a public observable identity through \(\schema_i\).
+    \item Locally measure finite-shot readout statistics and map them to the public value-mask domain \(A_{\schema_i}(r_i(x))\).
+    \item Estimate class-wise low-order statistics, coverage counts, and, when enabled, mask-aware high-order sketches.
+    \item Upload only the protocol statistics, not raw examples or full measurement records.
+    \item Aggregate class statistics by class counts and compare test readouts in the same public comparison domain.
+\end{enumerate}
+The second step is the one the paper is built around. If local coordinates are not bound to public observable identities, the remaining steps may still produce vectors, but they no longer define a valid fusion estimator.
+
+\subsection{Schema Adapter}
+
+For client \(i\), the schema adapter maps a raw local readout vector to a public comparison vector:
+\begin{equation}
+    A_{\schema_i}: \R^{m_i}\rightarrow \R^{2D}.
+\end{equation}
+The first \(D\) coordinates store observable values and the second \(D\) coordinates store a missingness mask. For public observable \(o_j\),
+\begin{equation}
+    [A_{\schema_i}(r)]_j =
+    \begin{cases}
+        r_a, & \text{if } o_{ia}=o_j \text{ for some } a,\\
+        0, & \text{otherwise},
+    \end{cases}
+\end{equation}
+and
+\begin{equation}
+    [A_{\schema_i}(r)]_{D+j} =
+    \mathbf{1}\{o_j \text{ is measured by client } i\}.
+\end{equation}
+The mask is what keeps an unmeasured coordinate from being treated as a measured expectation near zero.
+
+\subsection{Low-Order Kernel Sketches}
+
+Let \(z=A_{\schema_i}(r_i(x))\). We use a random Fourier feature map
+\begin{equation}
+    \phi(z)=\sqrt{\frac{2}{d}}\cos(Wz+b)\in\R^d,
+\end{equation}
+where rows of \(W\) are sampled according to a shift-invariant kernel and \(b\) is uniform on \([0,2\pi]\), following the standard random-feature approximation of kernel values \cite{rahimi2007random}. Public anchors may be used to estimate coordinate centers and scales, but our current results suggest that naive anchor normalization should be treated carefully.
+
+Client \(i\)'s low-order class prototype is
+\begin{equation}
+    \mu_{i,c} =
+    \frac{1}{|\cD_{i,c}|}\sum_{(x,y)\in\cD_i:y=c}
+    \phi(A_{\schema_i}(r_i(x))).
+\end{equation}
+This approximates a kernel mean embedding of the class-conditional adapted readout distribution \cite{smola2007hilbert,gretton2012mmd}.
+
+\subsection{Coverage-Aware Observable Prototypes}
+
+The value-mask sketch is compact, but it can hide an important feature of heterogeneous readout: an observable may be measured by only a subset of clients, and that coverage pattern is protocol information. We therefore include a coverage-aware variant, denoted \method{}-Masked, that aggregates observable identities directly before any high-order extension.
+
+Write the adapted value and mask coordinates as \(v_j(x)\) and \(m_j(x)\). Client \(i\) uploads, for each class \(c\) and observable \(j\),
+\begin{equation}
+    S_{i,cj}=\sum_{(x,y)\in\cD_i:y=c}m_j(x)v_j(x),
+    \qquad
+    N_{i,cj}=\sum_{(x,y)\in\cD_i:y=c}m_j(x).
+\end{equation}
+The server forms the coverage-aware class prototype
+\begin{equation}
+    \bar v_{cj}=
+    \frac{\sum_i S_{i,cj}}{\sum_i N_{i,cj}+\epsilon}.
+\end{equation}
+Prediction compares a test readout only on coordinates that are both observed by the test schema and covered by the class prototype:
+\begin{equation}
+    d_c(x)=
+    \frac{
+    \sum_j m_j(x)\mathbf{1}\{N_{cj}>0\}w_{cj}
+    (v_j(x)-\bar v_{cj})^2
+    }{
+    \sum_j m_j(x)\mathbf{1}\{N_{cj}>0\}w_{cj}+\epsilon
+    },
+\end{equation}
+where \(w_{cj}\) is a mild coverage weight. This variant is less compressed than the RFF prototype but directly tests the central claim of the paper: once observable identities are protocol-bound, non-shared but semantically comparable readouts can still contribute to aggregation.
+
+When protocol sources are naturally grouped, as in multi-sensor or multi-view benchmarks, a coordinate-wise distance can overweight high-dimensional sources. We therefore include a source-normalized scoring option that first computes the coverage-aware distance inside each semantic group \(G_q\) and then averages over observed groups:
+\begin{equation}
+    d_c^{\mathrm{grp}}(x)=
+    \frac{1}{|\mathcal{Q}_x|}
+    \sum_{q\in\mathcal{Q}_x}
+    \frac{\sum_{j\in G_q} m_j(x)\mathbf{1}\{N_{cj}>0\}w_{cj}(v_j(x)-\bar v_{cj})^2}
+    {\sum_{j\in G_q} m_j(x)\mathbf{1}\{N_{cj}>0\}w_{cj}+\epsilon}.
+\end{equation}
+Group-balanced CProto is unnecessary when all public observables are exchangeable. It becomes important in information-fusion settings where one source contributes many more coordinates than another.
+
+\subsection{\hopmethod: Mask-Aware High-Order Outer-Product Sketches}
+
+Low-order sketches may be weak when classes have similar means but different covariance or higher-order geometry, a regime where second-order statistics can separate distributions that share first-order moments. The \hopmethod\ extension computes a high-order sketch over the adapted value vector \(v\in\R^D\), excluding the mask as a direct feature but using it to normalize projections:
+\begin{equation}
+    \psi_k(v,m)=
+    \left(
+    \frac{p_k^\top(m\odot v)}
+    {\sqrt{p_k^\top \operatorname{diag}(m)p_k+\epsilon}}
+    \right)^2,
+    \qquad k=1,\ldots,h,
+\end{equation}
+where \(p_k\) is the \(k\)-th random projection vector. If all observables are visible, this reduces to the usual projected outer-product statistic \((p_k^\top v)^2\). Under heterogeneous readout, the denominator prevents high-order coordinates from changing scale merely because a client observed fewer protocol observables.
+
+The client uploads
+\begin{equation}
+    H_{i,c} =
+    \frac{1}{|\cD_{i,c}|}\sum_{(x,y)\in\cD_i:y=c}\psi(v_i(x),m_i(x)).
+\end{equation}
+HOP is therefore not appended after alignment; it is a high-order statistic defined inside the same comparability protocol.
+
+\subsection{When to Use HOP}
+
+The high-order branch is not the default estimator. The default compact statistic is CProto, because many heterogeneous-source tasks are separable by low-order coverage-aware evidence once coordinate identities are correct. HOP is enabled only when there is training-only evidence that pairwise or covariance structure carries class information. In practice this means one of two conditions holds: the public-anchor score selects stable cross-source pairs with nontrivial variation, or the calibration split shows that a CHOP mixture improves over the low-order branch under the same payload. If neither condition holds, adaptive CHOP falls back to CProto.
+
+This rule is part of the method rather than a post-hoc interpretation. It prevents the paper from treating quadratic sketches as universally beneficial, and it makes the high-order claim falsifiable: HOP should help on interaction-dominated benchmarks and should be neutral or disabled on low-order, imputation-friendly benchmarks. The experiments therefore report CProto, CHOP, adaptive CHOP, random-key HOP, and equal-byte RFF controls together.
+
+\subsection{Compressed Coverage-Aware HOP}
+
+The full coverage-aware protocol communicates statistics for all \(D\) public observables. To test whether the high-order gain survives under tighter communication, we add a compressed variant, CHOP. A public anchor set is measured under the client schemas, and the protocol selects \(K<D\) observable keys using an anchor-informed unsupervised score, such as coverage
+\begin{equation}
+    s^{\mathrm{cov}}_j = \widehat{\Pr}(m_j=1)
+\end{equation}
+or coverage-weighted variation
+\begin{equation}
+    s^{\mathrm{var}}_j =
+    \widehat{\mathrm{Var}}(v_j)\sqrt{\widehat{\Pr}(m_j=1)}.
+\end{equation}
+The client then sends coverage-aware value sums, coverage counts, and mask-aware HOP statistics only for the selected key set \(\cK\). A compressed low-order control, denoted CProto, uses the same key set without HOP. This makes the HOP comparison strict: CHOP and CProto differ by the high-order sketch, not by the selected observables. Random-key controls check that CHOP is not simply benefiting from arbitrary \(K\)-coordinate compression.
+
+\subsection{Adaptive High-Order Gate}
+
+Because high-order statistics are useful only when the task contains source interactions, we also define an adaptive CHOP variant. Each client reserves a small training-only calibration split. The low-order equal-byte CProto branch and the CHOP statistics are fitted on the remaining training data. The calibration split is then used to choose among a small budget-matched candidate set: the low-order CProto branch and CHOP mixtures
+\begin{equation}
+    d_c^{(\alpha)}(z)=
+    \alpha d^{\mathrm{low}}_c(z)
+    +(1-\alpha)\lambda d^{\mathrm{hop}}_c(z),
+    \qquad
+    \alpha\in\{0,0.25,0.5,0.75,1\}.
+\end{equation}
+Clients evaluate these candidates under their own schemas and report only aggregate calibration scores. The protocol uses a CHOP mixture only when its calibration accuracy exceeds the low-order branch by a margin \(\tau\); otherwise it falls back to equal-byte CProto. The selected candidate is then refit on the full training data before test evaluation. No test labels are used, and all candidates fit inside the same per-round payload budget. The gate is not meant to make HOP universally dominant. Its purpose is narrower: avoid high-order sketches on low-order-separable tasks and retain CHOP mixtures on interaction-dominated tasks.
+
+\subsection{Server Aggregation}
+
+For each class \(c\), the server aggregates local statistics by class counts:
+\begin{equation}
+    \mu_c = \sum_i \alpha_{i,c}\mu_{i,c},\qquad
+    H_c = \sum_i \alpha_{i,c}H_{i,c},
+\end{equation}
+where
+\begin{equation}
+    \alpha_{i,c}=
+    \frac{|\cD_{i,c}|}{\sum_j |\cD_{j,c}|}.
+\end{equation}
+At prediction time, a test readout from schema \(\schema\) is adapted to \(z\), sketched to \(\phi(z)\), and compared to class prototypes:
+\begin{equation}
+    d_c(z)=
+    \|\phi(z)-\mu_c\|_2^2
+    + \lambda \|\psi(v)-H_c\|_2^2.
+\end{equation}
+The predicted label is \(\arg\min_c d_c(z)\). Setting \(\lambda=0\) recovers the low-order prototype variant.
+
+\subsection{Optional Shot-Variance Shrinkage}
+
+Finite shots provide a measurable uncertainty proxy. We estimate client reliability as
+\begin{equation}
+    \rho_i = \frac{1}{1+\gamma\sigma_i^2},
+    \qquad
+    \sigma_i^2 \approx
+    \frac{1}{B}\sum_{x,a}\frac{1-\hat{\mu}_{ia}(x)^2}{S_i}.
+\end{equation}
+The server may shrink noisy local statistics before aggregation. In our experiments, this module is mixed on real image tasks and should be viewed as optional. The main method is the comparability protocol plus low-order kernel prototypes; HOP and shrinkage are extensions for specific regimes.
+
+\subsection{Communication}
+
+For scalar size \(b\), \(C\) classes, low-order dimension \(d\), and high-order dimension \(h\), the per-client per-round payload is
+\begin{equation}
+    \mathcal{B} \approx b\,C(d+h+1) + O(b),
+\end{equation}
+with \(h=0\) for prototype-only variants. The implementation records bytes per client per round and includes matched communication controls.
+For \method{}-Masked with \(D\) protocol observables, the payload is approximately
+\begin{equation}
+    \mathcal{B}_{\mathrm{mask}}
+    \approx b\,\{C(2D+1)+1\},
+\end{equation}
+because each client sends value sums and coverage counts. We therefore report matched-budget controls where low-order RFF and shared-observable baselines receive the same byte budget.
+For CHOP with \(K\) selected observables and HOP dimension \(h\),
+\begin{equation}
+    \mathcal{B}_{\mathrm{CHOP}}
+    \approx b\,\{C(2K+h+1)+1\}.
+\end{equation}
+Adaptive CHOP uses the same accounting as its selected candidate: either the equal-byte CProto fallback or the fixed CHOP payload with a chosen mixture weight. The calibration decision itself is a protocol choice and does not add per-class prototype statistics.

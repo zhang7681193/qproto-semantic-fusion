@@ -1,0 +1,3 @@
+﻿seed,method,final_acc,final_balanced_acc,bytes_per_client_round,total_upload_bytes,param_scalars
+0,vqc_fedavg,0.16666666666666666,0.19642857142857142,128,1152.0,16
+

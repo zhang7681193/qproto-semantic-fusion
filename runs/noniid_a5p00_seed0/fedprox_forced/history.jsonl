@@ -1,0 +1,9 @@
+﻿{"method": "fedprox_forced", "round": 1, "acc": 0.26166666666666666, "balanced_acc": 0.25, "nll": 1.3841970234373022}
+{"method": "fedprox_forced", "round": 5, "acc": 0.2682083333333333, "balanced_acc": 0.25639898040853254, "nll": 1.3794987328689912}
+{"method": "fedprox_forced", "round": 10, "acc": 0.32208333333333333, "balanced_acc": 0.3208960662246469, "nll": 1.3736228646451203}
+{"method": "fedprox_forced", "round": 15, "acc": 0.410375, "balanced_acc": 0.4092190711398322, "nll": 1.3677879010084848}
+{"method": "fedprox_forced", "round": 20, "acc": 0.3666666666666667, "balanced_acc": 0.35719014137332483, "nll": 1.3608347743595293}
+{"method": "fedprox_forced", "round": 25, "acc": 0.32429166666666664, "balanced_acc": 0.3143097802508179, "nll": 1.355414948523881}
+{"method": "fedprox_forced", "round": 30, "acc": 0.327, "balanced_acc": 0.3173578303579217, "nll": 1.3504059863814517}
+{"method": "fedprox_forced", "round": 35, "acc": 0.39025, "balanced_acc": 0.38299791418493434, "nll": 1.344608039491605}
+

@@ -1,0 +1,40 @@
+\begin{table*}[t]
+\centering
+\caption{Final full-class results under heterogeneous readout. Values are mean accuracy over five seeds; bytes are per client per round.}
+\label{tab:masked-fullclass}
+\begin{tabular}{lcccc}
+\toprule
+Dataset & Method & Acc. & 95\% CI & Bytes \\
+\midrule
+MNIST-10 & \method{}-Masked-HOP & \textbf{0.744} & 0.027 & 24364 \\
+MNIST-10 & \method{}-Masked & 0.743 & 0.027 & 20524 \\
+MNIST-10 & CHOP, \(K=96\) & 0.739 & 0.030 & 11564 \\
+MNIST-10 & CProto, \(K=96\) & 0.738 & 0.030 & 7724 \\
+MNIST-10 & shared-observable & 0.695 & 0.018 & 7724 \\
+MNIST-10 & FedAdam schema & 0.456 & 0.033 & 7720 \\
+MNIST-10 & FedProto schema & 0.412 & 0.029 & 7724 \\
+MNIST-10 & SCAFFOLD schema & 0.277 & 0.044 & 15440 \\
+MNIST-10 & no-schema & 0.219 & 0.010 & 7724 \\
+\midrule
+Fashion-10 & \method{}-Masked-HOP & \textbf{0.662} & 0.026 & 24364 \\
+Fashion-10 & \method{}-Masked & 0.661 & 0.026 & 20524 \\
+Fashion-10 & CHOP, \(K=96\) & 0.660 & 0.027 & 11564 \\
+Fashion-10 & CProto, \(K=96\) & 0.660 & 0.027 & 7724 \\
+Fashion-10 & shared-observable & 0.656 & 0.019 & 7724 \\
+Fashion-10 & FedAdam schema & 0.544 & 0.033 & 7720 \\
+Fashion-10 & FedProto schema & 0.522 & 0.037 & 7724 \\
+Fashion-10 & SCAFFOLD schema & 0.377 & 0.069 & 15440 \\
+Fashion-10 & no-schema & 0.240 & 0.025 & 7724 \\
+\midrule
+CIFAR-10 & \method{}-Masked-HOP & \textbf{0.454} & 0.004 & 24364 \\
+CIFAR-10 & \method{}-Masked & 0.454 & 0.003 & 20524 \\
+CIFAR-10 & CHOP, \(K=96\) & 0.451 & 0.004 & 11564 \\
+CIFAR-10 & CProto, \(K=96\) & 0.450 & 0.005 & 7724 \\
+CIFAR-10 & shared-observable & 0.425 & 0.017 & 7724 \\
+CIFAR-10 & FedAdam schema & 0.281 & 0.017 & 7720 \\
+CIFAR-10 & FedProto schema & 0.268 & 0.019 & 7724 \\
+CIFAR-10 & SCAFFOLD schema & 0.204 & 0.038 & 15440 \\
+CIFAR-10 & no-schema & 0.166 & 0.006 & 7724 \\
+\bottomrule
+\end{tabular}
+\end{table*}

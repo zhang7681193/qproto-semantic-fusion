@@ -1,0 +1,3 @@
+﻿{"method": "fedprox_schema", "round": 1, "acc": 0.190275, "balanced_acc": 0.1883101751358502, "nll": 2.29139000214159}
+{"method": "fedprox_schema", "round": 15, "acc": 0.42542500000000005, "balanced_acc": 0.4370265900475466, "nll": 2.150189437481381}
+

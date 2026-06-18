@@ -1,0 +1,28 @@
+\begin{table*}[t]
+\centering
+\caption{Quantum-backend compatibility checks after adding coverage-aware aggregation. PennyLane uses precomputed VQC readout features; Qiskit Aer uses noisy finite-shot simulator readouts.}
+\label{tab:quantum-backend-masked}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+Setting & Method & Acc. & 95\% CI & Bytes \\
+\midrule
+PennyLane MNIST-4 & \method{}-Masked & 0.733 & 0.063 & 1940 \\
+PennyLane MNIST-4 & \method{}-Masked-HOP & 0.734 & 0.061 & 2708 \\
+PennyLane MNIST-4 & low-order prototype & 0.413 & -- & 1556 \\
+PennyLane private-signal & \method{}-Masked & 0.748 & 0.032 & 1940 \\
+PennyLane private-signal & \method{}-Masked-HOP & 0.750 & 0.029 & 2708 \\
+PennyLane private-signal & no-schema & 0.405 & 0.041 & 1556 \\
+PennyLane private-signal & shared-observable & 0.357 & 0.013 & 1556 \\
+\midrule
+Qiskit Aer MNIST-4 & \method{}-Masked & 0.593 & 0.060 & 404 \\
+Qiskit Aer MNIST-4 & \method{}-Masked-HOP & 0.597 & 0.065 & 660 \\
+Qiskit Aer MNIST-4 & CHOP, \(K=8\) & 0.579 & 0.043 & 532 \\
+Qiskit Aer MNIST-4 & CProto, \(K=8\) & 0.576 & 0.046 & 276 \\
+Qiskit Aer MNIST-4 & shared-observable & 0.558 & 0.083 & 532 \\
+Qiskit Aer MNIST-4 & low-order prototype & 0.427 & 0.238 & 532 \\
+Qiskit Aer MNIST-4 & no-schema & 0.375 & 0.155 & 532 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

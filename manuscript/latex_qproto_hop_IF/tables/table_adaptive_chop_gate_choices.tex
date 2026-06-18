@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\caption{Adaptive CHOP calibration choices. The gate uses training-only calibration and chooses either the equal-byte CProto fallback or a CHOP-key candidate \(\alpha d_{\mathrm{low}}+(1-\alpha)d_{\mathrm{hop}}\). The \(\alpha=1\) column is a CHOP-key low-order branch rather than a high-order branch.}
+\label{tab:adaptive-chop-gate}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Dataset & \(n\) & CProto & \(\alpha=0\) & .25 & .50 & .75 & 1.0 \\
+\midrule
+UCI HAR & 5 & 4 & 0 & 0 & 0 & 0 & 1 \\
+MFeat & 10 & 9 & 0 & 0 & 0 & 0 & 1 \\
+PAMAP2 & 5 & 5 & 0 & 0 & 0 & 0 & 0 \\
+MHEALTH & 10 & 4 & 0 & 2 & 0 & 0 & 4 \\
+\bottomrule
+\end{tabular}
+\end{table}

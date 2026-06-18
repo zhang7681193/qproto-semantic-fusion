@@ -1,0 +1,25 @@
+\begin{table}[t]
+\centering
+\caption{CHOP communication sweeps. CProto uses the same selected observable keys but omits HOP.}
+\label{tab:chop-sweep}
+\begin{tabular}{llccc}
+\toprule
+Setting & Variant & \(K\) & Acc. & Bytes \\
+\midrule
+PennyLane high-order & CProto & 8 & 0.389 & 276 \\
+PennyLane high-order & CHOP & 8 & 0.639 & 1812 \\
+PennyLane high-order & CHOP & 24 & 0.602 & 2324 \\
+PennyLane high-order & CHOP & 48 & 0.579 & 3092 \\
+\midrule
+MNIST-10 & CHOP & 32 & 0.663 & 6444 \\
+MNIST-10 & CHOP & 64 & 0.730 & 9004 \\
+MNIST-10 & CHOP & 96 & 0.751 & 11564 \\
+MNIST-10 & CHOP & 128 & 0.753 & 14124 \\
+\midrule
+Qiskit Aer MNIST-4 & CHOP & 4 & 0.556 & 404 \\
+Qiskit Aer MNIST-4 & CHOP & 8 & 0.579 & 532 \\
+Qiskit Aer MNIST-4 & CHOP & 10 & 0.594 & 596 \\
+Qiskit Aer MNIST-4 & CHOP & 12 & 0.597 & 660 \\
+\bottomrule
+\end{tabular}
+\end{table}

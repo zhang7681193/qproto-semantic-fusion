@@ -1,0 +1,29 @@
+﻿{
+  "seed": 0,
+  "dataset": {
+    "source": "data/mnist.npz",
+    "n_train": 80,
+    "n_test": 40,
+    "n_classes": 4,
+    "n_qubits": 4,
+    "layers": 1
+  },
+  "summaries": [
+    {
+      "method": "vqc_init",
+      "final_acc": 0.15,
+      "final_balanced_acc": 0.21212121212121213,
+      "bytes_per_client_round": 128,
+      "total_upload_bytes": 1152.0,
+      "param_scalars": 16
+    },
+    {
+      "method": "vqc_fedavg",
+      "final_acc": 0.15,
+      "final_balanced_acc": 0.21212121212121213,
+      "bytes_per_client_round": 128,
+      "total_upload_bytes": 1152.0,
+      "param_scalars": 16
+    }
+  ]
+}

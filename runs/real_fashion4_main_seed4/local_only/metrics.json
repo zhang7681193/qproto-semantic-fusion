@@ -1,0 +1,9 @@
+﻿{
+  "method": "local_only",
+  "final_acc": 0.77425,
+  "final_balanced_acc": 0.7738116533037025,
+  "distortion_proxy": 0.0,
+  "class_gap_proxy": 0.0,
+  "bytes_per_client_round": 0,
+  "elapsed_sec": 0.0
+}

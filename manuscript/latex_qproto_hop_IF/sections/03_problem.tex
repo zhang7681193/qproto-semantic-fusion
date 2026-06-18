@@ -1,0 +1,53 @@
+\section{Problem Setting}
+
+We describe the setting using quantum readout as the motivating instance, while the same protocol applies to general source-coordinate fusion whenever clients expose heterogeneous source identities, local orders, or incomplete views. This covers the readout-level view of quantum FL and measurement-sketch settings as well as ordinary multi-source fusion \cite{ren2025towardqfl,huang2020classicalshadows,hadfield2022locallybiased,castanedo2013datafusion}. Concretely, consider \(K\) clients. Client \(i\) owns a local labeled dataset
+\begin{equation}
+    \cD_i=\{(x_{in},y_{in})\}_{n=1}^{N_i}, \qquad y_{in}\in\{1,\ldots,C\}.
+\end{equation}
+For an input \(x\), the client applies a quantum model or, more generally, a source readout pipeline and returns finite-shot or noisy estimates of source coordinates. In quantum settings, these estimates are tied to explicit measurement choices rather than anonymous feature columns \cite{havlicek2019supervised,schuld2019feature,huang2020classicalshadows}. The local readout schema is
+\begin{equation}
+    \schema_i = \{(a,o_{ia})\}_{a=1}^{m_i},
+\end{equation}
+where \(a\) is the local coordinate and \(o_{ia}\in\cO\) is the protocol source identity, such as a Pauli string, qubit subset, measurement basis, sensor block, feature family, or other public readout key. The public dictionary \(\cO=\{o_1,\ldots,o_D\}\) is shared, but client \(i\) may observe only a subset.
+
+Let \(r_i(x)\in\R^{m_i}\) denote the raw measurement statistic uploaded or used locally by client \(i\). A typical coordinate may be an expectation estimate
+\begin{equation}
+    \hat{\mu}_{ia}(x)=\frac{1}{S_i}\sum_{s=1}^{S_i} b_{ias}(x),
+\end{equation}
+where \(b_{ias}(x)\in\{-1,+1\}\) is a measurement outcome and \(S_i\) is the shot count. The finite-shot variance scales as
+\begin{equation}
+    \operatorname{Var}[\hat{\mu}_{ia}(x)] \approx \frac{1-\mu_{ia}(x)^2}{S_i}.
+\end{equation}
+
+\subsection{Fusion View}
+
+From an information-fusion perspective, client \(i\) observes a source-specific view
+\begin{equation}
+    V_i(x)=\{(\hat{\mu}_{ia}(x),o_{ia})\}_{a=1}^{m_i}
+\end{equation}
+of an unobserved semantic readout vector over \(\cO\). The observable key \(o_{ia}\) plays the role of source calibration metadata: it states what physical quantity a local measurement estimates. The missingness pattern is therefore structured rather than arbitrary, as in missing-view fusion, but here it can also be induced by measurement design \cite{havaei2016hemis,tang2024incomplete,huang2020classicalshadows}. A client may omit observable \(o_j\) because of hardware constraints, shot budget, commuting-measurement choices, qubit subset limitations, or a deliberately different readout design. A fusion rule must distinguish three cases that look similar in an ordinary vector representation:
+\begin{enumerate}
+    \item \(o_j\) was measured and its expectation is near zero;
+    \item \(o_j\) was not measured by this client;
+    \item a local coordinate was assigned to the wrong public observable.
+\end{enumerate}
+The first case is a valid quantum statistic, the second is a missing-view event, and the third is semantic mismatch. \method\ is designed around this separation.
+
+\subsection{Why Raw Prototype Aggregation Fails}
+
+Suppose each client computes a class prototype by averaging raw readout vectors. If client coordinate \(a\) corresponds to observable \(Z_1\) for one client and \(X_2Z_3\) for another, then the numerical average of coordinate \(a\) has no stable physical meaning. More formally, if two clients use different local permutations \(P_i\) and \(P_j\) of semantic coordinates, then
+\begin{equation}
+    \frac{1}{2}(P_i p_i + P_j p_j)
+    \neq
+    P\left(\frac{1}{2}(p_i+p_j)\right)
+\end{equation}
+for any single shared semantic permutation \(P\), except in degenerate aligned cases. This is the non-canonical aggregation problem.
+
+The goal is therefore not only to reduce communication, but to define a protocol under which client statistics become comparable before aggregation. We require:
+\begin{itemize}
+    \item a public observable dictionary;
+    \item a local-to-public schema map for each client;
+    \item an explicit representation of missing observables;
+    \item a compact sketch for class-conditional readout distributions;
+    \item communication accounting that treats all baselines fairly.
+\end{itemize}

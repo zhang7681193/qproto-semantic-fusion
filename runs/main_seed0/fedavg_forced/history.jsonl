@@ -1,0 +1,19 @@
+﻿{"method": "fedavg_forced", "round": 1, "acc": 0.3105833333333333, "balanced_acc": 0.3137614336846291, "nll": 1.3874742441149306}
+{"method": "fedavg_forced", "round": 5, "acc": 0.2675, "balanced_acc": 0.25, "nll": 1.3960167843669418}
+{"method": "fedavg_forced", "round": 10, "acc": 0.2881666666666667, "balanced_acc": 0.2975893021359119, "nll": 1.3785735275902185}
+{"method": "fedavg_forced", "round": 15, "acc": 0.3142083333333333, "balanced_acc": 0.3237497163996246, "nll": 1.3740948814518175}
+{"method": "fedavg_forced", "round": 20, "acc": 0.2626666666666667, "balanced_acc": 0.2770411524855617, "nll": 1.3750819294737702}
+{"method": "fedavg_forced", "round": 25, "acc": 0.3566666666666667, "balanced_acc": 0.3608847359595039, "nll": 1.3567260933490903}
+{"method": "fedavg_forced", "round": 30, "acc": 0.29204166666666664, "balanced_acc": 0.275234931184441, "nll": 1.3662915003610228}
+{"method": "fedavg_forced", "round": 35, "acc": 0.325875, "balanced_acc": 0.32647326786674186, "nll": 1.3520256728571032}
+{"method": "fedavg_forced", "round": 40, "acc": 0.33987500000000004, "balanced_acc": 0.34049859324913884, "nll": 1.3481239471071726}
+{"method": "fedavg_forced", "round": 1, "acc": 0.26166666666666666, "balanced_acc": 0.25, "nll": 1.384973527268761}
+{"method": "fedavg_forced", "round": 5, "acc": 0.26166666666666666, "balanced_acc": 0.25, "nll": 1.3838732432786176}
+{"method": "fedavg_forced", "round": 10, "acc": 0.25750000000000006, "balanced_acc": 0.25, "nll": 1.3848472190718768}
+{"method": "fedavg_forced", "round": 15, "acc": 0.2865833333333333, "balanced_acc": 0.28304520042094317, "nll": 1.3799447732263121}
+{"method": "fedavg_forced", "round": 20, "acc": 0.29691666666666666, "balanced_acc": 0.3107048545999491, "nll": 1.3718721333540944}
+{"method": "fedavg_forced", "round": 25, "acc": 0.34524999999999995, "balanced_acc": 0.35761178961187134, "nll": 1.3669788711361648}
+{"method": "fedavg_forced", "round": 30, "acc": 0.26308333333333334, "balanced_acc": 0.2514704411009206, "nll": 1.3681759075795363}
+{"method": "fedavg_forced", "round": 35, "acc": 0.357125, "balanced_acc": 0.34852017004587765, "nll": 1.348962295866454}
+{"method": "fedavg_forced", "round": 40, "acc": 0.31179166666666663, "balanced_acc": 0.30422496209233446, "nll": 1.3508349640665422}
+

@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\caption{Hardware-ready Qiskit circuit path on a small MNIST-2 Aer fallback. This is not a hardware claim; it verifies the same circuit/count/readout pipeline used for IBM backend execution.}
+\label{tab:hardware-ready}
+\begin{tabular}{lcc}
+\toprule
+Method & Acc. & Bytes \\
+\midrule
+\method{}-Masked-HOP & 0.778 & 332 \\
+CHOP & 0.756 & 268 \\
+CProto & 0.753 & 140 \\
+FedProto schema & 0.650 & 268 \\
+FedAdam schema & 0.528 & 264 \\
+No schema & 0.583 & 268 \\
+Wrong schema & 0.561 & 396 \\
+\bottomrule
+\end{tabular}
+\end{table}

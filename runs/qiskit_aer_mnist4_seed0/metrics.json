@@ -1,0 +1,67 @@
+﻿{
+  "summaries": [
+    {
+      "method": "qproto_hop",
+      "final_acc": 0.4239583333333333,
+      "final_balanced_acc": 0.41094796071176887,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.4451721288576371,
+      "bytes_per_client_round": 788,
+      "elapsed_sec": 0.02723073959350586
+    },
+    {
+      "method": "qproto_proto",
+      "final_acc": 0.4239583333333333,
+      "final_balanced_acc": 0.41208432434813247,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.4451721288576371,
+      "bytes_per_client_round": 532,
+      "elapsed_sec": 0.022541522979736328
+    },
+    {
+      "method": "shared_observable",
+      "final_acc": 0.528125,
+      "final_balanced_acc": 0.5088695824524312,
+      "distortion_proxy": 0.9337023168180916,
+      "class_gap_proxy": 0.22311721490028177,
+      "bytes_per_client_round": 532,
+      "elapsed_sec": 0.04012107849121094
+    },
+    {
+      "method": "no_schema",
+      "final_acc": 0.43333333333333335,
+      "final_balanced_acc": 0.39157637420718816,
+      "distortion_proxy": 0.2433846247232917,
+      "class_gap_proxy": 0.3008259778516511,
+      "bytes_per_client_round": 532,
+      "elapsed_sec": 0.03140687942504883
+    },
+    {
+      "method": "wrong_schema",
+      "final_acc": 0.24895833333333334,
+      "final_balanced_acc": 0.25151460095137423,
+      "distortion_proxy": 0.2505560806764661,
+      "class_gap_proxy": 0.4021118911576506,
+      "bytes_per_client_round": 788,
+      "elapsed_sec": 0.04290366172790527
+    },
+    {
+      "method": "forced_canonical",
+      "final_acc": 0.384375,
+      "final_balanced_acc": 0.35139843199436227,
+      "distortion_proxy": 0.2416936307303163,
+      "class_gap_proxy": 0.2598029857180527,
+      "bytes_per_client_round": 532,
+      "elapsed_sec": 0.03825068473815918
+    },
+    {
+      "method": "fedavg_forced",
+      "final_acc": 0.396875,
+      "final_balanced_acc": 0.29504602713178296,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 528,
+      "elapsed_sec": 0.035722970962524414
+    }
+  ]
+}

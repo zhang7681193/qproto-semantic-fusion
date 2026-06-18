@@ -1,0 +1,67 @@
+﻿{
+  "summaries": [
+    {
+      "method": "scaffold_schema",
+      "final_acc": 0.27291666666666664,
+      "final_balanced_acc": 0.2639419036845507,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 1056,
+      "elapsed_sec": 0.056421756744384766
+    },
+    {
+      "method": "feddyn_schema",
+      "final_acc": 0.33125000000000004,
+      "final_balanced_acc": 0.289501454427925,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 528,
+      "elapsed_sec": 0.05917644500732422
+    },
+    {
+      "method": "fedadam_schema",
+      "final_acc": 0.35,
+      "final_balanced_acc": 0.34559227537168713,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.0,
+      "bytes_per_client_round": 528,
+      "elapsed_sec": 0.04696989059448242
+    },
+    {
+      "method": "fedproto_schema",
+      "final_acc": 0.3385416666666667,
+      "final_balanced_acc": 0.33327246283128636,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.42557351218875894,
+      "bytes_per_client_round": 532,
+      "elapsed_sec": 0.03335070610046387
+    },
+    {
+      "method": "qproto_cproto",
+      "final_acc": 0.5895833333333333,
+      "final_balanced_acc": 0.5948569812540401,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.9780908296337244,
+      "bytes_per_client_round": 276,
+      "elapsed_sec": 0.025068283081054688
+    },
+    {
+      "method": "qproto_chop",
+      "final_acc": 0.5885416666666667,
+      "final_balanced_acc": 0.5942687459599225,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 0.9780908296337244,
+      "bytes_per_client_round": 532,
+      "elapsed_sec": 0.03590846061706543
+    },
+    {
+      "method": "qproto_masked_hop",
+      "final_acc": 0.5677083333333333,
+      "final_balanced_acc": 0.5745790239172592,
+      "distortion_proxy": 0.0,
+      "class_gap_proxy": 1.2052234728823434,
+      "bytes_per_client_round": 660,
+      "elapsed_sec": 0.028963565826416016
+    }
+  ]
+}

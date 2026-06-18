@@ -1,0 +1,4 @@
+﻿{"method": "no_schema", "round": 1, "acc": 0.4389423076923077, "balanced_acc": 0.4292058571140127, "class_gap_proxy": 0.6029985690865785, "distortion_proxy": 0.43189616589681745, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.0}
+{"method": "no_schema", "round": 3, "acc": 0.5048076923076923, "balanced_acc": 0.49870169294574496, "class_gap_proxy": 0.45131948506566816, "distortion_proxy": 0.3974533898962965, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.595930392261591}
+{"method": "no_schema", "round": 6, "acc": 0.4956730769230769, "balanced_acc": 0.48757113426294174, "class_gap_proxy": 0.44515553766323923, "distortion_proxy": 0.43302353944593125, "active_classes": 4, "mean_shrink": 1.0, "drift_proxy": 0.39941447532155566}
+

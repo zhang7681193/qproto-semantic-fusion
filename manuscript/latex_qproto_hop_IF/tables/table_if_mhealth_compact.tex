@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\caption{Real wearable multi-source MHEALTH benchmark under a subject-held-out split. All equal-byte rows use 13,876 bytes/client/round.}
+\label{tab:if-mhealth-compact}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.94}
+\begin{tabular}{lcc}
+\toprule
+Method & Acc. & Bytes \\
+\midrule
+Shared-view RFF eq. & 0.711 & 13876 \\
+Zero-fill RFF eq. & 0.790 & 13876 \\
+Learned ridge impute & 0.845 & 11092 \\
+Mask-aware pooled MLP & 0.868 & 22132 \\
+CProto eq. & 0.879 & 13876 \\
+Random-key CProto eq. & 0.799 & 13876 \\
+Random-key HOP eq. & 0.799 & 13876 \\
+CHOP eq. & \textbf{0.909} & 13876 \\
+\bottomrule
+\end{tabular}
+\end{table}
